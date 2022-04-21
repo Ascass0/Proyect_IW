@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Equipo(models.Model):
-    numeroSerie= models.IntegerField()
+    numeroSerie= models.IntegerField(primary_key=True)
     modelo = models.CharField(max_length=150)
     marca = models.CharField(max_length=30)
     tipoEquipo = models.CharField(max_length=30)
@@ -14,7 +14,7 @@ class Equipo(models.Model):
 
 
 class Empleado(models.Model):
-    DNI = models.CharField(max_length=9)
+    DNI = models.CharField(max_length=9, primary_key=True)
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
