@@ -7,6 +7,16 @@ def index(request):
 
 #devuelve los equipos
 def listado_equipos(request):
-	equipos = get_list_or_404(Equipo.objects.order_by('numeroSerie'))
+	equipos = Equipo.objects.order_by('numeroSerie')
 	context = {'equipo': equipos }
 	return render(request, 'listadoEquipos.html', context)
+
+def listado_tickets(request):
+	tickets = Ticket.objects.order_by('titulo')
+	context = {'ticket': tickets }
+	return render(request, 'listadoTickets.html', context)
+
+def listado_empleados(request):
+	empleados = Empleado.objects.order_by('DNI')
+	context = {'empleado': empleados }
+	return render(request, 'listadoEmpleados.html', context)

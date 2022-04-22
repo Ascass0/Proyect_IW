@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Equipos</title>
+    <title>Listado Empleados</title>
 </head>
 <body>
-    <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE EQIPOS</h1></a><br>
-    {% if equipo %}
+    <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE EMPLEADOS</h1></a><br>
+    {% if empleado %}
              <ul>
-             {% for eq in equipo %}
+             {% for em in empleado %}
                  <li>
-                     Numero serie: <a href="/appProyectoIW_Grupo3/listadoEquipos/">{{ eq.numeroSerie }}</a>---Modelo: {{ eq.modelo }}
+                     DNI: <a href="/appProyectoIW_Grupo3/listadoEmpleados">{{ em.DNI }}</a>
                  </li>
              {% endfor %}
              </ul>
     {% else %}
-    <p>No hay equipos creados.</p>
+    <p>No hay empleados en la empresa.</p>
     {% endif %}
 </body>
 </html>
