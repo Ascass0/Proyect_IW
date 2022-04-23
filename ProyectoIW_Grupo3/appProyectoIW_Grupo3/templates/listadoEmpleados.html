@@ -12,12 +12,13 @@
              <ul>
              {% for em in empleado %}
                  <li>
-                     DNI: <a href="/appProyectoIW_Grupo3/listadoEmpleados">{{ em.DNI }}</a>
+                     DNI: <a href="{% url 'detalleEmpleado' em.id %}">{{ em.DNI }}</a>
                  </li>
              {% endfor %}
              </ul>
     {% else %}
     <p>No hay empleados en la empresa.</p>
     {% endif %}
+    <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
 </body>
 </html>

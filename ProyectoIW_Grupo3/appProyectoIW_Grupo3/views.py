@@ -3,7 +3,7 @@ from .models import Equipo, Ticket, Empleado
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import DetailView
-from .forms import EquipoForm, TicketForm
+from .forms import EquipoForm, TicketForm, EmpleadoForm
 
 def index(request):
     return render(request, 'index.html')
@@ -62,7 +62,7 @@ class CreateTicketView(View):
 		form = TicketForm()
 		context = {
 			'form': form,
-			'titulo_pagina': 'Crear nuevo tiquet'
+			'titulo_pagina': 'Crear nuevo ticket'
 		}
 		return render(request, 'anadirTicket.html', context)
 
@@ -81,6 +81,37 @@ class CreateTicketView(View):
 class DetalleTicket(DetailView):
 	model = Ticket
 	template_name = 'detalleTicket.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		return context
+
+class CreateEmpleadoView(View):
+	
+	# Llamada para mostrar la página con el formulario de creación al usuario
+	def get(self, request, *args, **kwargs):
+		form = EmpleadoForm()
+		context = {
+			'form': form,
+			'titulo_pagina': 'Crear nuevo empleado'
+		}
+		return render(request, 'anadirEmpleado.html', context)
+
+	# Llamada para procesar la creación de la categoría
+	def post(self, request, *args, **kwargs):
+		form = EmpleadoForm(request.POST)
+		if form.is_valid():
+
+			form.save()
+
+			# Volvemos a la lista de equipos
+			#return redirect('equipo')
+
+		return render(request, 'anadirEmpleado.html', {'form': form, 'titulo_pagina': 'Crear nuevo empleado'})
+
+class DetalleEmpleado(DetailView):
+	model = Empleado
+	template_name = 'detalleEmpleado.html'
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
