@@ -7,7 +7,7 @@
     <title>Listado Equipos</title>
 </head>
 <body>
-    <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE EQIPOS</h1></a><br>
+    <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE EQUIPOS</h1></a><br>
     {% if equipo %}
              <ul>
              {% for eq in equipo %}
@@ -19,5 +19,7 @@
     {% else %}
     <p>No hay equipos creados.</p>
     {% endif %}
+    <br>
+    <a href="/appProyectoIW_Grupo3/listadoEquipos/anadirEquipo">AÑADIR EQUIPO</a>
 </body>
 </html>

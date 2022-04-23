@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Equipo, Ticket, Empleado
 from django.http import HttpResponse
+from django.views import View
+from .forms import EquipoForm
 
 def index(request):
     return render(request, 'index.html')
@@ -20,3 +22,27 @@ def listado_empleados(request):
 	empleados = Empleado.objects.order_by('DNI')
 	context = {'empleado': empleados }
 	return render(request, 'listadoEmpleados.html', context)
+
+class CreateEquipoView(View):
+	
+	# Llamada para mostrar la página con el formulario de creación al usuario
+	def get(self, request, *args, **kwargs):
+		form = EquipoForm()
+		context = {
+			'form': form,
+			'titulo_pagina': 'Crear nuevo equipo'
+		}
+		return render(request, 'anadirEquipo.html', context)
+
+	# Llamada para procesar la creación de la categoría
+	def post(self, request, *args, **kwargs):
+		form = EquipoForm(request.POST)
+		if form.is_valid():
+
+			form.save()
+
+			# Volvemos a la lista de noticias
+			return redirect('equipo')
+
+		return render(request, 'anadirEquipo.html', {'form': form, 'titulo_pagina': 'Crear nuevo equipo'})
+
