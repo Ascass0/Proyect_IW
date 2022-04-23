@@ -1,8 +1,9 @@
+from pickle import TRUE
 from django.db import models
 
 
 class Equipo(models.Model):
-    numeroSerie= models.IntegerField(primary_key=True)
+    numeroSerie = models.IntegerField(unique=TRUE)
     modelo = models.CharField(max_length=150)
     marca = models.CharField(max_length=30)
     tipoEquipo = models.CharField(max_length=30)
@@ -12,20 +13,17 @@ class Equipo(models.Model):
     proveedorTelefono = models.IntegerField()
     planta = models.CharField(max_length=100)
 
-
 class Empleado(models.Model):
-    DNI = models.CharField(max_length=9, primary_key=True)
+    DNI = models.CharField(max_length=9, unique=TRUE)
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
     telfono = models.IntegerField()
 
-
 class Ticket(models.Model):
-    numeroSerieEquipo= models.ForeignKey(Equipo, on_delete=models.CASCADE)
-    DNIempleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-
-    #numeroReferencia = models.IntegerField()
+    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    numeroReferencia = models.IntegerField(unique=TRUE)
     titulo = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=300)
     fechaApertura = models.DateField
