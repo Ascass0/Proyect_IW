@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles Equipo</title>
+</head>
+<body>
+    {% if equipo %}
+    <ul>
+        <li>
+            {{ equipo.numeroSerie}}
+        </li>
+        <li>
+            {{ equipo.modelo}}
+        </li>
+        <li>
+            {{ equipo.marca}}
+        </li>
+        <li>
+            {{ equipo.tipoEquipo}}
+        </li>
+        <li>
+            {{ equipo.fechaAdquisicion}}
+        </li>
+        <li>
+            {{ equipo.fechaPuestaMarcha}}
+        </li>
+        <li>
+            {{ equipo.proveedorNombre}}
+        </li>
+        <li>
+            {{ equipo.proveedorTelefono}}
+        </li>
+        <li>
+            {{ equipo.planta}}
+        </li>
+    </ul>
+    {% else %}
+        <p>No existe este equipo.</p>
+    {% endif %}
+</body>
+</html>

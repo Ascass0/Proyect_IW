@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404, redirec
 from .models import Equipo, Ticket, Empleado
 from django.http import HttpResponse
 from django.views import View
+from django.views.generic import DetailView
 from .forms import EquipoForm
 
 def index(request):
@@ -41,8 +42,15 @@ class CreateEquipoView(View):
 
 			form.save()
 
-			# Volvemos a la lista de noticias
-			return redirect('equipo')
+			# Volvemos a la lista de equipos
+			#return redirect('equipo')
 
 		return render(request, 'anadirEquipo.html', {'form': form, 'titulo_pagina': 'Crear nuevo equipo'})
 
+class DetalleEquipo(DetailView):
+	model = Equipo
+	template_name = 'detalleEquipo.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		return context
