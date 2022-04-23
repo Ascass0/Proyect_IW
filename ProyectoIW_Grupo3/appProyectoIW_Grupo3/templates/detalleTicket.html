@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Ticket</title>
+</head>
+<body>
+    {% if ticket %}
+    <ul>
+        <li>
+            {{ ticket.equipo.numeroSerie}}
+        </li>
+        <li>
+            {{ ticket.empleado.DNI}}
+        </li>
+        <li>
+            {{ ticket.numeroReferencia}}
+        </li>
+        <li>
+            {{ ticket.titulo}}
+        </li>
+        <li>
+            {{ ticket.descripcion}}
+        </li>
+        <li>
+            {{ ticket.fechaApertura}}
+        </li>
+        <li>
+            {{ ticket.fechaResolucion}}
+        </li>
+        <li>
+            {{ ticket.nivelUrgencia}}
+        </li>
+        <li>
+            {{ ticket.tipoTicket}}
+        </li>
+        <li>
+            {{ ticket.estado}}
+        </li>
+        <li>
+            {{ ticket.comentarios}}
+        </li>
+    </ul>
+    {% else %}
+        <p>No existe este equipo.</p>
+    {% endif %}
+</body>
+</html>

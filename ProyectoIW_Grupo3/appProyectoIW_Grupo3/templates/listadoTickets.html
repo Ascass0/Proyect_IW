@@ -12,7 +12,7 @@
              <ul>
              {% for tick in ticket %}
                  <li>
-                     Titulo: <a href="/appProyectoIW_Grupo3/listadoTickets/">{{ tick.titulo }}</a>
+                     Titulo: <a href="{% url 'detalleTicket' tick.id %}">{{ tick.titulo }}</a>
                  </li>
              {% endfor %}
              </ul>
