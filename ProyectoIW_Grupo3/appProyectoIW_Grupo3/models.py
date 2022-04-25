@@ -39,8 +39,8 @@ class Ticket(models.Model):
     numeroReferencia = models.IntegerField(unique=TRUE)
     titulo = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=300)
-    fechaApertura = models.DateField
-    fechaResolucion = models.DateField
+    fechaApertura = models.DateField(blank=True, null=True)
+    fechaResolucion = models.DateField(blank=True, null=True)
     nivelUrgencia = models.CharField(max_length=5)
     tipoTicket = models.CharField(max_length=20)
     estado = models.CharField(max_length=30)
