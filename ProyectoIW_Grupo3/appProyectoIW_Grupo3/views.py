@@ -70,6 +70,8 @@ class DetalleEquipo(DetailView):
 
 
 
+
+
 #---------------------------------TICKET--------------------------------------
 
 #clase para el formulario de añadir ticket
@@ -103,6 +105,8 @@ class DetalleTicket(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+
 
 
 
@@ -147,3 +151,17 @@ def borradoEmpleado(request, id):
     item = Empleado.objects.get(id=id)
     item.delete()
     return redirect ('listadoEmpleados')
+
+
+#funcion que coge el id del equipo para borrar
+def borradoEquipo(request, id):
+    item = Equipo.objects.get(id=id)
+    item.delete()
+    return redirect ('listadoEquipos')
+    
+
+#funcion que coge el id del ticket para borrar
+def borradoTicket(request, id):
+    item = Ticket.objects.get(id=id)
+    item.delete()
+    return redirect ('listadoTickets')

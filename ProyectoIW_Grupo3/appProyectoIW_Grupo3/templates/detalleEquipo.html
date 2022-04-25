@@ -10,35 +10,36 @@
     {% if equipo %}
     <ul>
         <li>
-            {{ equipo.numeroSerie}}
+            <strong>NUMERO SERIE: </strong> {{ equipo.numeroSerie}}
         </li>
         <li>
-            {{ equipo.modelo}}
+            <strong>MODELO: </strong> {{ equipo.modelo}}
         </li>
         <li>
-            {{ equipo.marca}}
+            <strong>MARCA: </strong> {{ equipo.marca}}
         </li>
         <li>
-            {{ equipo.tipoEquipo}}
+            <strong>TIPO EQUIPO: </strong> {{ equipo.tipoEquipo}}
         </li>
         <li>
-            {{ equipo.fechaAdquisicion}}
+            <strong>FECHA ADQUISICIÓN: </strong>FECHA ADQUISICIÓN: {{ equipo.fechaAdquisicion}}
         </li>
         <li>
-            {{ equipo.fechaPuestaMarcha}}
+            <strong>FECHA PUESTA MARCHA: </strong> {{ equipo.fechaPuestaMarcha}}
         </li>
         <li>
-            {{ equipo.proveedorNombre}}
+            <strong>NOMBRE PROVEEDOR: </strong> {{ equipo.proveedorNombre}}
         </li>
         <li>
-            {{ equipo.proveedorTelefono}}
+            <strong>TELÉFONO PROVEEDOR: </strong> {{ equipo.proveedorTelefono}}
         </li>
         <li>
-            {{ equipo.planta}}
+            <strong>PLANTA: </strong> {{ equipo.planta}}
         </li>
     </ul>
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
+    <a href="{% url 'borrarEquipo' id=equipo.id %}">BORRAR</a>
 </body>
 </html>

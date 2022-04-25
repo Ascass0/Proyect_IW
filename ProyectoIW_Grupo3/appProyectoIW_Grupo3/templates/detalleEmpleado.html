@@ -10,19 +10,19 @@
     {% if empleado %}
     <ul>
         <li>
-            {{ empleado.DNI}}
+            <strong>DNI: </strong>{{ empleado.DNI}}
         </li>
         <li>
-            {{ empleado.nombre}}
+            <strong>NOMBRE: </strong> {{ empleado.nombre}}
         </li>
         <li>
-            {{ empleado.apellido}}
+            <strong>APELLIDO: </strong> {{ empleado.apellido}}
         </li>
         <li>
-            {{ empleado.email}}
+            <strong>EMAIL: </strong> {{ empleado.email}}
         </li>
         <li>
-            {{ empleado.telfono}}
+            <strong>TELÉFONO: </strong> {{ empleado.telfono}}
         </li>
     </ul>
     {% else %}

@@ -22,6 +22,7 @@ urlpatterns = [
     path('listadoEmpleados/anadirEmpleado', views.CreateEmpleadoView.as_view(), name='anadirEmpleado'),
 
    #borrar
-    path('delete-item/<int:id>/', views.borradoEmpleado, name='borrarEmpleado'),
-
+    path('delete-item1/<int:id>/', views.borradoEquipo, name='borrarEquipo'),
+    path('delete-item2/<int:id>/', views.borradoTicket, name='borrarTicket'),
+    path('delete-item3/<int:id>/', views.borradoEmpleado, name='borrarEmpleado'),
 ]

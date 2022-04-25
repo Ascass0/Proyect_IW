@@ -10,41 +10,42 @@
     {% if ticket %}
     <ul>
         <li>
-            {{ ticket.equipo.numeroSerie}}
+            <strong>NUMERO SERIE EQUIPO: </strong> {{ ticket.equipo.numeroSerie}}
         </li>
         <li>
-            {{ ticket.empleado.DNI}}
+            <strong>DNI EMPLEADO: </strong> {{ ticket.empleado.DNI}}
         </li>
         <li>
-            {{ ticket.numeroReferencia}}
+            <strong>NUMERO REFERENCIA: </strong> {{ ticket.numeroReferencia}}
         </li>
         <li>
-            {{ ticket.titulo}}
+            <strong>TÍTULO: </strong> {{ ticket.titulo}}
         </li>
         <li>
-            {{ ticket.descripcion}}
+            <strong>DESCRIPCIÓN: </strong> {{ ticket.descripcion}}
         </li>
         <li>
-            {{ ticket.fechaApertura}}
+            <strong>FECHA APERTURA: </strong> {{ ticket.fechaApertura}}
         </li>
         <li>
-            {{ ticket.fechaResolucion}}
+            <strong>FECHA RESOLUCIÓN: </strong> {{ ticket.fechaResolucion}}
         </li>
         <li>
-            {{ ticket.nivelUrgencia}}
+            <strong>NIVEL URGENCIA: </strong> {{ ticket.nivelUrgencia}}
         </li>
         <li>
-            {{ ticket.tipoTicket}}
+            <strong>TIPO DE TICKET: </strong> {{ ticket.tipoTicket}}
         </li>
         <li>
-            {{ ticket.estado}}
+            <strong>ESTADO: </strong> {{ ticket.estado}}
         </li>
         <li>
-            {{ ticket.comentarios}}
+            <strong>COMENTARIOS: </strong> {{ ticket.comentarios}}
         </li>
     </ul>
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
+    <a href="{% url 'borrarTicket' id=ticket.id %}">BORRAR</a>
 </body>
 </html>
