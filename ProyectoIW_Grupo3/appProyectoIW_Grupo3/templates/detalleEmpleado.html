@@ -28,5 +28,6 @@
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
+    <a href="{% url 'borrarEmpleado' id=empleado.id %}">BORRAR</a>
 </body>
 </html>

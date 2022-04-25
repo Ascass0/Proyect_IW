@@ -9,8 +9,8 @@ class Equipo(models.Model):
     modelo = models.CharField(max_length=150)
     marca = models.CharField(max_length=30)
     tipoEquipo = models.CharField(max_length=30)
-    fechaAdquisicion = models.DateField
-    fechaPuestaMarcha = models.DateField
+    fechaAdquisicion = models.DateField(blank=True, null=True)
+    fechaPuestaMarcha = models.DateField(blank=True, null=True)
     proveedorNombre = models.CharField(max_length=30)
     proveedorTelefono = models.IntegerField()
     planta = models.CharField(max_length=100)

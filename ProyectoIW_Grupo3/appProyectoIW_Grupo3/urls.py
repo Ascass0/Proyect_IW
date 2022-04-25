@@ -20,5 +20,8 @@ urlpatterns = [
     path('listadoEmpleados', views.listado_empleados, name='listadoEmpleados'),
     path('listadoEmpleados/<int:pk>/', views.DetalleEmpleado.as_view(), name='detalleEmpleado'),
     path('listadoEmpleados/anadirEmpleado', views.CreateEmpleadoView.as_view(), name='anadirEmpleado'),
- 
+
+   #borrar
+    path('delete-item/<int:id>/', views.borradoEmpleado, name='borrarEmpleado'),
+
 ]

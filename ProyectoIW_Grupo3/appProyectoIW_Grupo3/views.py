@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Equipo, Ticket, Empleado
 from django.http import HttpResponse
@@ -139,3 +140,10 @@ class DetalleEmpleado(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+#funcion que coge el id del empleado para borrar
+def borradoEmpleado(request, id):
+    item = Empleado.objects.get(id=id)
+    item.delete()
+    return redirect ('listadoEmpleados')
