@@ -14,7 +14,7 @@ urlpatterns = [
  #tickets
     path('listadoTickets', views.listado_tickets, name='listadoTickets'),
     path('listadoTickets/<int:pk>/', views.DetalleTicket.as_view(), name='detalleTicket'),
-    path('listadoTickets/anadirTicket', views.CreateEquipoView.as_view(), name='anadirTicket'),
+    path('listadoTickets/anadirTicket', views.CreateTicketView.as_view(), name='anadirTicket'),
 
  #empleados
     path('listadoEmpleados', views.listado_empleados, name='listadoEmpleados'),

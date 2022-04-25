@@ -15,6 +15,10 @@ class Equipo(models.Model):
     proveedorTelefono = models.IntegerField()
     planta = models.CharField(max_length=100)
 
+    #funcion que muestra el nombre que se visualiza
+    def __str__(self):
+         return str(self.numeroSerie)
+
 
 #modelo de la clase empleado
 class Empleado(models.Model):
@@ -24,6 +28,9 @@ class Empleado(models.Model):
     email = models.EmailField()
     telfono = models.IntegerField()
 
+    #funcion que muestra el nombre que se visualiza
+    def __str__(self):
+        return str(self.DNI)
 
 #modelo de la clase ticket
 class Ticket(models.Model):
@@ -38,3 +45,8 @@ class Ticket(models.Model):
     tipoTicket = models.CharField(max_length=20)
     estado = models.CharField(max_length=30)
     comentarios = models.CharField(max_length=500)
+
+    #funcion que muestra el nombre que se visualiza
+    def __str__(self):
+        return str(self.numeroReferencia)
+    
