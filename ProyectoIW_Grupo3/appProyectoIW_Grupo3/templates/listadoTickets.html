@@ -12,7 +12,8 @@
              <ul>
              {% for tick in ticket %}
                  <li>
-                     Titulo: <a href="{% url 'detalleTicket' tick.id %}">{{ tick.titulo }}</a>
+                    <strong>Titulo: </strong>{{ tick.titulo }}</a><br>
+                    <a href="{% url 'detalleTicket' tick.id %}">ver detalles</a>
                  </li>
              {% endfor %}
              </ul>
