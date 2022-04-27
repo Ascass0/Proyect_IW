@@ -15,6 +15,7 @@ class TicketForm(forms.ModelForm):
         model = Ticket
         fields = '__all__'
         
+        
 
 #formulario de empleado
 class EmpleadoForm(forms.ModelForm):

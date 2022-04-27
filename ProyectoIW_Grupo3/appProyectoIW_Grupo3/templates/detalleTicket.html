@@ -10,42 +10,44 @@
     {% if ticket %}
     <ul>
         <li>
-            <strong>NUMERO SERIE EQUIPO: </strong> {{ ticket.equipo.numeroSerie}}
+            <strong>NUMERO SERIE EQUIPO: </strong> <input type="text" value = {{ticket.equipo.numeroSerie}}>
         </li>
         <li>
-            <strong>DNI EMPLEADO: </strong> {{ ticket.empleado.DNI}}
+            <strong>DNI EMPLEADO: </strong> <input type="text" value = {{ticket.empleado.DNI}}>
+        </li>
         </li>
         <li>
-            <strong>NUMERO REFERENCIA: </strong> {{ ticket.numeroReferencia}}
+            <strong>NUMERO REFERENCIA: </strong> <input type="text" value = {{ticket.numeroReferencia}} id="NumRef">
         </li>
         <li>
-            <strong>TÍTULO: </strong> {{ ticket.titulo}}
+            <strong>TÍTULO: </strong> <input type="text" value = {{ticket.titulo}}>
         </li>
         <li>
-            <strong>DESCRIPCIÓN: </strong> {{ ticket.descripcion}}
+            <strong>DESCRIPCIÓN: </strong> <input type="text" value = {{ticket.descripcion}}>
         </li>
         <li>
-            <strong>FECHA APERTURA: </strong> {{ ticket.fechaApertura}}
+            <strong>FECHA APERTURA: </strong> <input type="text" value = {{ticket.fechaApertura}}>
         </li>
         <li>
-            <strong>FECHA RESOLUCIÓN: </strong> {{ ticket.fechaResolucion}}
+            <strong>FECHA RESOLUCIÓN: </strong> <input type="text" value = {{ticket.fechaResolucion}}>
         </li>
         <li>
-            <strong>NIVEL URGENCIA: </strong> {{ ticket.nivelUrgencia}}
+            <strong>NIVEL URGENCIA: </strong> <input type="text" value = {{ticket.nivelUrgencia}}>
         </li>
         <li>
-            <strong>TIPO DE TICKET: </strong> {{ ticket.tipoTicket}}
+            <strong>TIPO DE TICKET: </strong> <input type="text" value = {{ticket.tipoTicket}}>
         </li>
         <li>
-            <strong>ESTADO: </strong> {{ ticket.estado}}
+            <strong>ESTADO: </strong> <input type="text" value = {{ticket.estado}}>
         </li>
         <li>
-            <strong>COMENTARIOS: </strong> {{ ticket.comentarios}}
+            <strong>COMENTARIOS: </strong> <input type="text" value = {{ticket.comentarios}}>
         </li>
     </ul>
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
     <a href="{% url 'borrarTicket' id=ticket.id %}">BORRAR</a>
+    <a href="{% url 'modificarTicket' id=ticket.id %}">MODIFICAR</a>
 </body>
 </html>

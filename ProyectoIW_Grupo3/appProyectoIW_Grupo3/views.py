@@ -165,3 +165,9 @@ def borradoTicket(request, id):
     item = Ticket.objects.get(id=id)
     item.delete()
     return redirect ('listadoTickets')
+
+
+
+def modificadoTicket(request, id):
+    Ticket.objects.filter(pk=id).update(numeroReferencia = 9999)
+    return redirect ('listadoTickets')
