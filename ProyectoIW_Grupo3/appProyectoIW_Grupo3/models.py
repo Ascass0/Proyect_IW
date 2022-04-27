@@ -32,7 +32,21 @@ class Empleado(models.Model):
     def __str__(self):
         return str(self.DNI)
 
+
+
 #modelo de la clase ticket
+NIVEL_URGENCIA_CHOICES = [
+    ('ALTO', 'Alto'),
+    ('MEDIO', 'Medio'),
+    ('BAJO', 'Bajo'),
+]
+
+TIPO_TICKET_CHOICES = [
+    ('AVERIA', 'Avería'),
+    ('MEJORA', 'Mejora'),
+    ('MANTENIMIENTO', 'Mantenimiento'),
+]
+
 class Ticket(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
     empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
@@ -41,8 +55,8 @@ class Ticket(models.Model):
     descripcion = models.CharField(max_length=300)
     fechaApertura = models.DateField(blank=True, null=True)
     fechaResolucion = models.DateField(blank=True, null=True)
-    nivelUrgencia = models.CharField(max_length=5)
-    tipoTicket = models.CharField(max_length=20)
+    nivelUrgencia = models.CharField(max_length=5, choices = NIVEL_URGENCIA_CHOICES, default='MEDIO')
+    tipoTicket = models.CharField(max_length=20, choices = TIPO_TICKET_CHOICES, default='MANTENIMIENTO')
     estado = models.CharField(max_length=30)
     comentarios = models.CharField(max_length=500)
 

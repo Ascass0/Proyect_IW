@@ -26,7 +26,4 @@ urlpatterns = [
     path('delete-item2/<int:id>/', views.borradoTicket, name='borrarTicket'),
     path('delete-item3/<int:id>/', views.borradoEmpleado, name='borrarEmpleado'),
 
-   #modificar
-   path('update-item1/<int:id>/', views.modificadoTicket, name='modificarTicket'),
-
 ]
