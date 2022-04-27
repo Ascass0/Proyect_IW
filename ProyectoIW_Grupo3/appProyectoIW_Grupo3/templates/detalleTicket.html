@@ -11,43 +11,44 @@
     <h2>Detalle del ticket "{{ticket.equipo.numeroSerie}}"</h2>
     <ul>
         <li>
-            <strong>NUMERO SERIE EQUIPO: </strong> {{ticket.equipo.numeroSerie}}
+            <strong>Número de serie del equipo: </strong> <a href="{% url 'detalleEquipo' ticket.equipo.id %}">{{ticket.equipo.numeroSerie}}</a>
         </li>
         <li>
-            <strong>DNI EMPLEADO: </strong> {{ticket.empleado.DNI}}
+            <strong>DNI del empleado: </strong> <a href="{% url 'detalleEmpleado' ticket.empleado.id %}">{{ticket.empleado.DNI}}</a>
         </li>
         </li>
         <li>
-            <strong>NUMERO REFERENCIA: </strong> {{ticket.numeroReferencia}}
+            <strong>Número de referencia: </strong> {{ticket.numeroReferencia}}
         </li>
         <li>
-            <strong>TÍTULO: </strong> {{ticket.titulo}}
+            <strong>Título: </strong> {{ticket.titulo}}
         </li>
         <li>
-            <strong>DESCRIPCIÓN: </strong> {{ticket.descripcion}}
+            <strong>Descripción: </strong> {{ticket.descripcion}}
         </li>
         <li>
-            <strong>FECHA APERTURA: </strong> {{ticket.fechaApertura}}
+            <strong>Fecha de apertura: </strong> {{ticket.fechaApertura}}
         </li>
         <li>
-            <strong>FECHA RESOLUCIÓN: </strong> {{ticket.fechaResolucion}}
+            <strong>Fecha de resolución: </strong> {{ticket.fechaResolucion}}
         </li>
         <li>
-            <strong>NIVEL URGENCIA: </strong> {{ticket.nivelUrgencia}}
+            <strong>Nivel de urgencia: </strong> {{ticket.nivelUrgencia}}
         </li>
         <li>
-            <strong>TIPO DE TICKET: </strong> {{ticket.tipoTicket}}
+            <strong>Tipo de ticket: </strong> {{ticket.tipoTicket}}
         </li>
         <li>
-            <strong>ESTADO: </strong> {{ticket.estado}}
+            <strong>Estado: </strong> {{ticket.estado}}
         </li>
         <li>
-            <strong>COMENTARIOS: </strong> {{ticket.comentarios}}
+            <strong>Comentarios: </strong> {{ticket.comentarios}}
         </li>
     </ul>
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
-    <a href="{% url 'borrarTicket' id=ticket.id %}">BORRAR</a>
+    <a href="{% url 'borrarTicket' id=ticket.id %}">BORRAR</a><br>
+    <a href="/appProyectoIW_Grupo3/">Inicio</a>
 </body>
 </html>

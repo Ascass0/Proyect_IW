@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Detalle del empleado</title>
 </head>
 <body>
     {% if empleado %}
@@ -14,21 +14,22 @@
             <strong>DNI: </strong>{{ empleado.DNI}}
         </li>
         <li>
-            <strong>NOMBRE: </strong> {{ empleado.nombre}}
+            <strong>Nombre: </strong> {{ empleado.nombre}}
         </li>
         <li>
-            <strong>APELLIDO: </strong> {{ empleado.apellido}}
+            <strong>Apellido: </strong> {{ empleado.apellido}}
         </li>
         <li>
-            <strong>EMAIL: </strong> {{ empleado.email}}
+            <strong>Email: </strong> {{ empleado.email}}
         </li>
         <li>
-            <strong>TELÉFONO: </strong> {{ empleado.telfono}}
+            <strong>Teléfono: </strong> {{ empleado.telfono}}
         </li>
     </ul>
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
-    <a href="{% url 'borrarEmpleado' id=empleado.id %}">BORRAR</a>
+    <a href="{% url 'borrarEmpleado' id=empleado.id %}">BORRAR</a><br>
+    <a href="/appProyectoIW_Grupo3">Inicio</a>
 </body>
 </html>

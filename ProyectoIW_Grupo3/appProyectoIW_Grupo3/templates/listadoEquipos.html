@@ -12,8 +12,9 @@
              <ul>
              {% for eq in equipo %}
                  <li>
-                     <strong>Numero serie:</strong> <a href="{% url 'detalleEquipo' eq.id %}">{{ eq.numeroSerie }}<br>
-                    </a><strong>Modelo:</strong> {{ eq.modelo }}
+                     <strong>Numero serie:</strong> {{ eq.numeroSerie }}<br>
+                    </a><strong>Modelo:</strong> {{ eq.modelo }}<br>
+                    <a href="{% url 'detalleEquipo' eq.id %}">ver detalles</a>
                  </li>
                  <br>
              {% endfor %}

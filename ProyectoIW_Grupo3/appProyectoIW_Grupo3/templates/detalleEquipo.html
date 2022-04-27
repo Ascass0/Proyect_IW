@@ -11,36 +11,37 @@
     <h2>Detalle del equipo "{{equipo.modelo}}"</h2>
     <ul>
         <li>
-            <strong>NUMERO SERIE: </strong> {{ equipo.numeroSerie}}
+            <strong>Número de serie: </strong> {{ equipo.numeroSerie}}
         </li>
         <li>
-            <strong>MODELO: </strong> {{ equipo.modelo}}
+            <strong>Modelo: </strong> {{ equipo.modelo}}
         </li>
         <li>
-            <strong>MARCA: </strong> {{ equipo.marca}}
+            <strong>Marca: </strong> {{ equipo.marca}}
         </li>
         <li>
-            <strong>TIPO EQUIPO: </strong> {{ equipo.tipoEquipo}}
+            <strong>Tipo de equipo: </strong> {{ equipo.tipoEquipo}}
         </li>
         <li>
-            <strong>FECHA ADQUISICIÓN: </strong>FECHA ADQUISICIÓN: {{ equipo.fechaAdquisicion}}
+            <strong>Fecha de adquisición: </strong>{{ equipo.fechaAdquisicion}}
         </li>
         <li>
-            <strong>FECHA PUESTA MARCHA: </strong> {{ equipo.fechaPuestaMarcha}}
+            <strong>Fecha de puesta en marcha: </strong> {{ equipo.fechaPuestaMarcha}}
         </li>
         <li>
-            <strong>NOMBRE PROVEEDOR: </strong> {{ equipo.proveedorNombre}}
+            <strong>Nombre del proveedor: </strong> {{ equipo.proveedorNombre}}
         </li>
         <li>
-            <strong>TELÉFONO PROVEEDOR: </strong> {{ equipo.proveedorTelefono}}
+            <strong>Teléfono del proveedor: </strong> {{ equipo.proveedorTelefono}}
         </li>
         <li>
-            <strong>PLANTA: </strong> {{ equipo.planta}}
+            <strong>Planta: </strong> {{ equipo.planta}}
         </li>
     </ul>
     {% else %}
         <p>No existe este equipo.</p>
     {% endif %}
-    <a href="{% url 'borrarEquipo' id=equipo.id %}">BORRAR</a>
+    <a href="{% url 'borrarEquipo' id=equipo.id %}">BORRAR</a><br>
+    <a href="/appProyectoIW_Grupo3">Inicio</a>
 </body>
 </html>

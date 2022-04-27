@@ -12,7 +12,8 @@
              <ul>
              {% for em in empleado %}
                  <li>
-                     DNI: <a href="{% url 'detalleEmpleado' em.id %}">{{ em.DNI }}</a>
+                     <strong>DNI:</strong> {{ em.DNI }}<br>
+                     <a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a>
                  </li>
              {% endfor %}
              </ul>
