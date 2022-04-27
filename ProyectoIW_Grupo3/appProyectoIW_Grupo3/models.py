@@ -47,6 +47,13 @@ TIPO_TICKET_CHOICES = [
     ('MANTENIMIENTO', 'Mantenimiento'),
 ]
 
+ESTADO_TICKET_CHOICES = [
+    ('ABIERTO', 'Abierto'),
+    ('CERRADO', 'Cerrado'),
+    ('BLOQUEADO', 'Bloqueado'),
+    ('SUSPENDIDO', 'Suspendido'),
+]
+
 class Ticket(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
     empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
@@ -57,7 +64,7 @@ class Ticket(models.Model):
     fechaResolucion = models.DateField(blank=True, null=True)
     nivelUrgencia = models.CharField(max_length=5, choices = NIVEL_URGENCIA_CHOICES, default='MEDIO')
     tipoTicket = models.CharField(max_length=20, choices = TIPO_TICKET_CHOICES, default='MANTENIMIENTO')
-    estado = models.CharField(max_length=30)
+    estado = models.CharField(max_length=30, choices = ESTADO_TICKET_CHOICES, default='ABIERTO')
     comentarios = models.CharField(max_length=500)
 
     #funcion que muestra el nombre que se visualiza
