@@ -7,6 +7,10 @@ class EquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
         fields = '__all__'
+        widgets = {
+            'fechaAdquisicion': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'fechaPuestaMarcha': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+        }
 
 
 #formulario de ticket
