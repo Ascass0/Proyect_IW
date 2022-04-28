@@ -1,10 +1,10 @@
 
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Equipo, Ticket, Empleado
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic import DetailView
-from .forms import EquipoForm, TicketForm, EmpleadoForm
+from .forms import EquipoForm, TicketForm, EmpleadoForm, EmpleadoActualizarForm, TicketActualizarForm
 
 
 # devuelve la página principal
@@ -12,6 +12,8 @@ def index(request):
     return render(request, 'index.html')
 
 # devuelve  el listado de los equipos
+
+
 def listado_equipos(request):
     equipos = Equipo.objects.order_by('numeroSerie')
     context = {'equipo': equipos}
@@ -32,11 +34,9 @@ def listado_empleados(request):
     return render(request, 'listadoEmpleados.html', context)
 
 
+# ---------------------------------EQUIPO--------------------------------------
 
-
-#---------------------------------EQUIPO--------------------------------------
-
-#clase para el formulario de añadir equipo
+# clase para el formulario de añadir equipo
 class CreateEquipoView(View):
 
     # Llamada para mostrar la página con el formulario de creación al usuario
@@ -59,7 +59,7 @@ class CreateEquipoView(View):
         return render(request, 'anadirEquipo.html', {'form': form, 'titulo_pagina': 'Crear nuevo equipo'})
 
 
-#clase para los detalles de cada equipo
+# clase para los detalles de cada equipo
 class DetalleEquipo(DetailView):
     model = Equipo
     template_name = 'detalleEquipo.html'
@@ -69,12 +69,9 @@ class DetalleEquipo(DetailView):
         return context
 
 
+# ---------------------------------TICKET--------------------------------------
 
-
-
-#---------------------------------TICKET--------------------------------------
-
-#clase para el formulario de añadir ticket
+# clase para el formulario de añadir ticket
 class CreateTicketView(View):
 
     # Llamada para mostrar la página con el formulario de creación al usuario
@@ -97,7 +94,7 @@ class CreateTicketView(View):
         return render(request, 'anadirTicket.html', {'form': form, 'titulo_pagina': 'Crear nuevo ticket'})
 
 
-#clase para los detalles de cada ticket
+# clase para los detalles de cada ticket
 class DetalleTicket(DetailView):
     model = Ticket
     template_name = 'detalleTicket.html'
@@ -105,15 +102,11 @@ class DetalleTicket(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
 
 
+# ---------------------------------EMPLEADO--------------------------------------
 
-
-
-#---------------------------------EMPLEADO--------------------------------------
-
-#clase para el formulario de añadir empleado
+# clase para el formulario de añadir empleado
 class CreateEmpleadoView(View):
 
     # Llamada para mostrar la página con el formulario de creación al usuario
@@ -136,7 +129,7 @@ class CreateEmpleadoView(View):
         return render(request, 'anadirEmpleado.html', {'form': form, 'titulo_pagina': 'Crear nuevo empleado'})
 
 
-#clase para los detalles de cada empleado
+# clase para los detalles de cada empleado
 class DetalleEmpleado(DetailView):
     model = Empleado
     template_name = 'detalleEmpleado.html'
@@ -146,22 +139,56 @@ class DetalleEmpleado(DetailView):
         return context
 
 
-#funcion que coge el id del empleado para borrar
+# ---------------------------------BORRADOS--------------------------------------
+
+# funcion que coge el id del empleado para borrar
 def borradoEmpleado(request, id):
     item = Empleado.objects.get(id=id)
     item.delete()
-    return redirect ('listadoEmpleados')
+    return redirect('listadoEmpleados')
 
 
-#funcion que coge el id del equipo para borrar
+# funcion que coge el id del equipo para borrar
 def borradoEquipo(request, id):
     item = Equipo.objects.get(id=id)
     item.delete()
-    return redirect ('listadoEquipos')
-    
+    return redirect('listadoEquipos')
 
-#funcion que coge el id del ticket para borrar
+
+# funcion que coge el id del ticket para borrar
 def borradoTicket(request, id):
     item = Ticket.objects.get(id=id)
     item.delete()
-    return redirect ('listadoTickets')
+    return redirect('listadoTickets')
+
+
+# ---------------------------------ACTUALIZAR--------------------------------------
+
+def editarEmpleado(request, id):
+    empleado = Empleado.objects.get(id=id)
+    form = EmpleadoActualizarForm(request.POST or None, instance=empleado)
+    if form.is_valid():
+        empleado = form.save(commit=False)
+        form.save()
+        return redirect('listadoEmpleados')
+    return render(request, 'actualizarEmpleado.html', {"titulo": 'actualizar empleado', "form": form})
+
+
+def editarTicket(request, id):
+    ticket = Ticket.objects.get(id=id)
+    form = TicketActualizarForm(request.POST or None, instance=ticket)
+    if form.is_valid():
+        ticket = form.save(commit=False)
+        form.save()
+        return redirect('listadoTickets')
+    return render(request, 'actualizarTicket.html', {"titulo": 'actualizar ticket', "form": form})
+
+
+def editarEquipo(request, id):
+    equipo = Equipo.objects.get(id=id)
+    form = EquipoForm(request.POST or None, instance=equipo)
+    if form.is_valid():
+        equipo = form.save(commit=False)
+        form.save()
+        return redirect('listadoEquipos')
+    return render(request, 'actualizarEquipo.html', {"titulo": 'actualizar equipo', "form": form})

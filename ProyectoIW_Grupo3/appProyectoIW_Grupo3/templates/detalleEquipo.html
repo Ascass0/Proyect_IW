@@ -42,6 +42,7 @@
         <p>No existe este equipo.</p>
     {% endif %}
     <a href="{% url 'borrarEquipo' id=equipo.id %}">BORRAR</a><br>
+    <a href="/appProyectoIW_Grupo3/actualizarEquipo/{{equipo.id}}">Actualizar</a><br>
     <a href="/appProyectoIW_Grupo3">Inicio</a>
 </body>
 </html>
