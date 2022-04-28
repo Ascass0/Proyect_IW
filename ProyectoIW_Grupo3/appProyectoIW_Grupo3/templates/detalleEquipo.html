@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles Equipo</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} Deustomach innovation {% endblock %}
+{% block content %}
     {% if equipo %}
     <h2>Detalle del equipo "{{equipo.modelo}}"</h2>
     <ul>
@@ -44,5 +38,4 @@
     <a href="{% url 'borrarEquipo' id=equipo.id %}">BORRAR</a><br>
     <a href="/appProyectoIW_Grupo3/actualizarEquipo/{{equipo.id}}">Actualizar</a><br>
     <a href="/appProyectoIW_Grupo3">Inicio</a>
-</body>
-</html>
+{% endblock %}

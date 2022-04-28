@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Empleados</title>
-</head>
-<body>
-    <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE EMPLEADOS</h1></a><br>
+{% extends "base.html" %}
+{% block title %}Listado Empleados{% endblock %}
+{% block content %}
+    <a href="/appProyectoIW_Grupo3"><h2>LISTADO DE EMPLEADOS</h2></a><br>
     {% if empleado %}
-             <ul>
-             {% for em in empleado %}
-                 <li>
-                     <strong>DNI:</strong> {{ em.DNI }}<br>
-                     <a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a>
-                 </li>
-             {% endfor %}
-             </ul>
-             <br>
+            <ul>
+            {% for em in empleado %}
+                <li>
+                    <strong>DNI:</strong> {{ em.DNI }}<br>
+                    <a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a>
+                </li>
+            {% endfor %}
+            </ul>
+            <br>
     {% else %}
     <p>No hay empleados en la empresa.</p>
     {% endif %}

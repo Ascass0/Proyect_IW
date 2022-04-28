@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Tickets</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} Deustomach innovation {% endblock %}
+{% block content %}
     <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE TICKETS</h1></a><br>
     {% if ticket %}
-             <ul>
-             {% for tick in ticket %}
-                 <li>
+            <ul>
+            {% for tick in ticket %}
+                <li>
                     <strong>Titulo: </strong>{{ tick.titulo }}</a><br>
                     <a href="{% url 'detalleTicket' tick.id %}">ver detalles</a>
-                 </li>
-             {% endfor %}
-             </ul>
-             <br>
+                </li>
+            {% endfor %}
+            </ul>
+            <br>
     {% else %}
     <p>No hay tickets generados.</p>
     {% endif %}
     <a href="/appProyectoIW_Grupo3/listadoTickets/anadirTicket">AÑADIR TICKET</a>
-</body>
-</html>
+{% endblock %}
