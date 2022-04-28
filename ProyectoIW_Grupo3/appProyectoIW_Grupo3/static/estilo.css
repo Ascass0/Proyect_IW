@@ -1,5 +1,5 @@
 
-.container {
+header{
     flex-wrap: nowrap;
     display: flex;
     padding: 3px;
@@ -7,4 +7,8 @@
     justify-content: space-between;
     height: 150px;
     border-bottom: 5px solid rgb(0, 0, 0) ;
+}
+
+#logo_izq, #logo_der{
+    height: 100px;
 }
