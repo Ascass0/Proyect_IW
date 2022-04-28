@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle Ticket</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} Deustomach innovation {% endblock %}
+{% block content %}
     {% if ticket %}
     <h2>Detalle del ticket "{{ticket.equipo.numeroSerie}}"</h2>
     <ul>
@@ -50,5 +44,4 @@
     {% endif %}
     <a href="{% url 'borrarTicket' id=ticket.id %}">BORRAR</a><br>
     <a href="/appProyectoIW_Grupo3/">Inicio</a>
-</body>
-</html>
+{% endblock %}

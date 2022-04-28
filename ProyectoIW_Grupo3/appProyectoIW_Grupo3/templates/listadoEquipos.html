@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado Equipos</title>
-</head>
-<body>
-    <a href="/appProyectoIW_Grupo3"><h1>LISTADO DE EQUIPOS</h1></a><br>
+{% extends "base.html" %}
+{% block title %} Deustomach innovation {% endblock %}
+{% block content %}
+    <a href="/appProyectoIW_Grupo3"><h2>LISTADO DE EQUIPOS</h2></a><br>
     {% if equipo %}
-             <ul>
-             {% for eq in equipo %}
-                 <li>
-                     <strong>Numero serie:</strong> {{ eq.numeroSerie }}<br>
+            <ul>
+            {% for eq in equipo %}
+                <li>
+                    <strong>Numero serie:</strong> {{ eq.numeroSerie }}<br>
                     </a><strong>Modelo:</strong> {{ eq.modelo }}<br>
                     <a href="{% url 'detalleEquipo' eq.id %}">ver detalles</a>
-                 </li>
-                 <br>
-             {% endfor %}
-             </ul>
+                </li>
+                <br>
+            {% endfor %}
+            </ul>
     {% else %}
     <p>No hay equipos creados.</p>
     {% endif %}
     <br>
     <a href="/appProyectoIW_Grupo3/listadoEquipos/anadirEquipo">AÑADIR EQUIPO</a>
-</body>
-</html>
+{% endblock %}

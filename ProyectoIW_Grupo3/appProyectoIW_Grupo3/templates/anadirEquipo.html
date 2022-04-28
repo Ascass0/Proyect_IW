@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir Equipo</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} Deustomach innovation {% endblock %}
+{% block content %}
     <form action="{% url 'anadirEquipo' %}" method="post">
         {% csrf_token %}
         {{ form.erros }}
         {{ form.as_p }}
         <input type="submit" value="Nuevo equipo" />
     </form>
-</body>
-</html>
+{% endblock %}
