@@ -1,14 +1,42 @@
 
+/*------------------------BASE------------------------ */
+
 header{
+    background-color: rgb(188, 207, 227);
     flex-wrap: nowrap;
     display: flex;
     padding: 3px;
     align-items: center;
     justify-content: space-between;
     height: 150px;
-    border-bottom: 5px solid rgb(0, 0, 0) ;
+    border-bottom: 3px solid rgb(0, 0, 0);
+}
+
+#enlaceBase{
+    text-decoration: none;
+    color: #000000;
 }
 
 #logo_izq, #logo_der{
     height: 100px;
+}
+
+
+/*-----------------------INDEX-----------------------*/
+.menu{
+    font-size: 20px;
+    border: 1px black solid;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#enlaceIndex{
+    text-decoration: none;
+    color: #000000;
+}
+
+#enlaceIndex:hover{
+    text-decoration: underline;
 }

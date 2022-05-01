@@ -53,9 +53,7 @@ class CreateEquipoView(View):
         form = EquipoForm(request.POST)
         if form.is_valid():
             form.save()
-
-            # Volvemos a la lista de equipos
-            # return redirect('equipo')
+            return redirect('listadoEquipos')
         return render(request, 'anadirEquipo.html', {'form': form, 'titulo_pagina': 'Crear nuevo equipo'})
 
 
@@ -88,9 +86,7 @@ class CreateTicketView(View):
         form = TicketForm(request.POST)
         if form.is_valid():
             form.save()
-
-            # Volvemos a la lista de equipos
-            # return redirect('equipo')
+            return redirect('listadoTickets')
         return render(request, 'anadirTicket.html', {'form': form, 'titulo_pagina': 'Crear nuevo ticket'})
 
 
@@ -122,10 +118,8 @@ class CreateEmpleadoView(View):
     def post(self, request, *args, **kwargs):
         form = EmpleadoForm(request.POST)
         if form.is_valid():
-            form.save()
-
-            # Volvemos a la lista de equipos
-            # return redirect('equipo')
+            form.save() 
+            return redirect('listadoEmpleados')
         return render(request, 'anadirEmpleado.html', {'form': form, 'titulo_pagina': 'Crear nuevo empleado'})
 
 
