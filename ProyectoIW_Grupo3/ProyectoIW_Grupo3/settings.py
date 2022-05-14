@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ProyectoIW_Grupo3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["./templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +68,8 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = '/appProyectoIW_Grupo3'
 
 WSGI_APPLICATION = 'ProyectoIW_Grupo3.wsgi.application'
 
