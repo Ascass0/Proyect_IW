@@ -70,6 +70,7 @@ TEMPLATES = [
 ]
 
 LOGIN_REDIRECT_URL = '/appProyectoIW_Grupo3'
+LOGOUT_REDIRECT_URL = '/appProyectoIW_Grupo3'
 
 WSGI_APPLICATION = 'ProyectoIW_Grupo3.wsgi.application'
 

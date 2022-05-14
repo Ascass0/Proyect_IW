@@ -1,19 +1,26 @@
 {% extends "base.html" %}
 {% block title %} Deustomach innovation {% endblock %}
 {% block content %}
-    <h2>LISTADO DE TICKETS</h2><br>
-    {% if ticket %}
-            <ul>
-            {% for tick in ticket %}
-                <li>
-                    <strong>Titulo: </strong>{{ tick.titulo }}</a><br>
-                    <a href="{% url 'detalleTicket' tick.id %}">ver detalles</a>
-                </li>
-            {% endfor %}
-            </ul>
-            <br>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <h2>LISTADO DE TICKETS</h2><br>
+        {% if ticket %}
+                <ul>
+                {% for tick in ticket %}
+                    <li>
+                        <strong>Titulo: </strong>{{ tick.titulo }}</a><br>
+                        <a href="{% url 'detalleTicket' tick.id %}">ver detalles</a>
+                    </li>
+                {% endfor %}
+                </ul>
+                <br>
+        {% else %}
+        <p>No hay tickets generados.</p>
+        {% endif %}
+        <a href="/appProyectoIW_Grupo3/listadoTickets/anadirTicket">AÑADIR TICKET</a>
     {% else %}
-    <p>No hay tickets generados.</p>
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a>
     {% endif %}
-    <a href="/appProyectoIW_Grupo3/listadoTickets/anadirTicket">AÑADIR TICKET</a>
 {% endblock %}

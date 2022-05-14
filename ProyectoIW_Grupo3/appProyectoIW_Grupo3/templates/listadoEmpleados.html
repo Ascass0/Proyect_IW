@@ -1,21 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Listado Empleados{% endblock %}
 {% block content %}
-    <h2>LISTADO DE EMPLEADOS</h2><br>
-    {% if empleado %}
-            <ul>
-            {% for em in empleado %}
-                <li>
-                    <strong>DNI:</strong> {{ em.DNI }}<br>
-                    <a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a>
-                </li>
-            {% endfor %}
-            </ul>
-            <br>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <h2>LISTADO DE EMPLEADOS</h2><br>
+        {% if empleado %}
+                <ul>
+                {% for em in empleado %}
+                    <li>
+                        <strong>DNI:</strong> {{ em.DNI }}<br>
+                        <a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a>
+                    </li>
+                {% endfor %}
+                </ul>
+                <br>
+        {% else %}
+        <p>No hay empleados en la empresa.</p>
+        {% endif %}
+        <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
     {% else %}
-    <p>No hay empleados en la empresa.</p>
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a>
     {% endif %}
-    <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
 {% endblock %}
-</body>
-</html>
+
