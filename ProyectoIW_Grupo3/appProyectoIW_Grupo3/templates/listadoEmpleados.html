@@ -2,8 +2,6 @@
 {% block title %}Listado Empleados{% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
         <h2>LISTADO DE EMPLEADOS</h2><br>
         {% if empleado %}
                 <ul>
@@ -20,7 +18,7 @@
         {% endif %}
         <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
     {% else %}
-        <p>You are not logged in</p>
+        <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>
     {% endif %}
 {% endblock %}

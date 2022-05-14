@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-{% block title %} Deustomach innovation {% endblock %}
+{% block title %} Listado tickets {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
         <h2>LISTADO DE TICKETS</h2><br>
         {% if ticket %}
                 <ul>
@@ -20,7 +18,7 @@
         {% endif %}
         <a href="/appProyectoIW_Grupo3/listadoTickets/anadirTicket">AÑADIR TICKET</a>
     {% else %}
-        <p>You are not logged in</p>
+        <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>
     {% endif %}
 {% endblock %}

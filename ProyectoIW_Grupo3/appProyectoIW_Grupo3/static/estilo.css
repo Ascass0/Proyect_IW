@@ -1,23 +1,58 @@
 
+body{
+    margin: 0px;
+}
+
 /*------------------------BASE------------------------ */
 
 header{
     background-color: rgb(188, 207, 227);
-    flex-wrap: nowrap;
     display: flex;
     padding: 3px;
     align-items: center;
     justify-content: space-between;
-    height: 150px;
+    height: 120px;
     border-bottom: 3px solid rgb(0, 0, 0);
 }
 
-#enlaceBase{
+#logoHeader, #menuLogin{
+    margin: 22px;
+    color: white;
+}
+#menuLogin{
+    display: flex;
+    flex-direction: column;
+}
+
+#loginitems{
+    background-color: rgb(82, 77, 246);
+    border-radius: 10px;
+    border: rgb(0, 0, 0) solid 1px;
+    display: flex;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+#avisoLog{
+    color: black;
+    align-self: center;
+}
+
+#loginItem, #logoutItem{
+    margin: 22px;
+}
+
+#enlaceTitulo, .enlaceLOG{
     text-decoration: none;
     color: #000000;
 }
 
-#logo_izq, #logo_der{
+.enlaceLOG:hover{
+    text-decoration: underline;
+}
+
+
+#logo_izq{
     height: 100px;
 }
 
