@@ -4,19 +4,27 @@
     {% if user.is_authenticated %}
         <h2>LISTADO DE TICKETS</h2><br>
         {% if ticket %}
-                <ul>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Titulo</th>
+                    <th>Estado</th>
+                </tr>
                 {% for tick in ticket %}
-                    <li>
-                        <strong>Titulo: </strong>{{ tick.titulo }}</a><br>
-                        <a href="{% url 'detalleTicket' tick.id %}">ver detalles</a>
-                    </li>
+                <tr>
+                    <th>{{ tick.id }}</th>
+                    <td>{{ tick.titulo }}</td>
+                    <td>{{ tick.estado }}</td>
+                    <td><a href="{% url 'detalleTicket' tick.id %}">ver detalles</a></td>
+                </tr>
                 {% endfor %}
-                </ul>
-                <br>
+            </table>
         {% else %}
         <p>No hay tickets generados.</p>
         {% endif %}
         <a href="/appProyectoIW_Grupo3/listadoTickets/anadirTicket">AÑADIR TICKET</a>
+        <br>
+        <a href="/appProyectoIW_Grupo3">INICIO</a>
     {% else %}
         <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>

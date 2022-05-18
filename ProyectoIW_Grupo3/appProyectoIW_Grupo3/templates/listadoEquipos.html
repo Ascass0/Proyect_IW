@@ -4,21 +4,28 @@
     {% if user.is_authenticated %}
         <h2>LISTADO DE EQUIPOS</h2><br>
         {% if equipo %}
-                <ul>
-                {% for eq in equipo %}
-                    <li>
-                        <strong>Numero serie:</strong> {{ eq.numeroSerie }}<br>
-                        </a><strong>Modelo:</strong> {{ eq.modelo }}<br>
-                        <a href="{% url 'detalleEquipo' eq.id %}">ver detalles</a>
-                    </li>
-                    <br>
-                {% endfor %}
-                </ul>
-            {% else %}
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Numero Serie</th>
+                        <th>Modelo</th>
+                    </tr>
+                    {% for eq in equipo %}
+                        <tr>
+                            <th>{{ eq.id }}</th>
+                            <td>{{ eq.numeroSerie }}</td>
+                            <td>{{ eq.modelo }}</td>
+                            <td><a href="{% url 'detalleEquipo' eq.id %}">ver detalles</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+        {% else %}
             <p>No hay equipos creados.</p>
-            {% endif %}
-            <br>
-            <a href="/appProyectoIW_Grupo3/listadoEquipos/anadirEquipo">AÑADIR EQUIPO</a>
+        {% endif %}
+        <br>
+        <a href="/appProyectoIW_Grupo3/listadoEquipos/anadirEquipo">AÑADIR EQUIPO</a>
+        <br>
+        <a href="/appProyectoIW_Grupo3">INICIO</a>
     {% else %}
         <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>

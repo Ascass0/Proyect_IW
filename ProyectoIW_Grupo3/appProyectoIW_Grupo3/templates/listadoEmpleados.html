@@ -4,19 +4,27 @@
     {% if user.is_authenticated %}
         <h2>LISTADO DE EMPLEADOS</h2><br>
         {% if empleado %}
-                <ul>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>DNI</th>
+                    <th>Email</th>
+                </tr>
                 {% for em in empleado %}
-                    <li>
-                        <strong>DNI:</strong> {{ em.DNI }}<br>
-                        <a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a>
-                    </li>
+                <tr>
+                    <th>{{ em.id }}</th>
+                    <td>{{ em.DNI }}</td>
+                    <td>{{ em.email }}</td>
+                    <td><a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a></td>
+                </tr>
                 {% endfor %}
-                </ul>
-                <br>
+            </table>
         {% else %}
         <p>No hay empleados en la empresa.</p>
         {% endif %}
         <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
+        <br>
+        <a href="/appProyectoIW_Grupo3">INICIO</a>
     {% else %}
         <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>
