@@ -1,19 +1,18 @@
 
+from pickle import FALSE, TRUE
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Equipo, Ticket, Empleado
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic import DetailView
-from .forms import EquipoForm, TicketForm, EmpleadoForm, EmpleadoActualizarForm, TicketActualizarForm
-
+from .forms import EquipoForm, TicketForm, EmpleadoForm
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin 
 
 # devuelve la página principal
 def index(request):
     return render(request, 'index.html')
 
 # devuelve  el listado de los equipos
-
-
 def listado_equipos(request):
     equipos = Equipo.objects.order_by('numeroSerie')
     context = {'equipo': equipos}
@@ -70,7 +69,10 @@ class DetalleEquipo(DetailView):
 # ---------------------------------TICKET--------------------------------------
 
 # clase para el formulario de añadir ticket
-class CreateTicketView(View):
+class CreateTicketView(LoginRequiredMixin, UserPassesTestMixin, View):
+
+    def test_func(self):
+        return self.request.user.groups.filter(name='Trabajador').exists()
 
     # Llamada para mostrar la página con el formulario de creación al usuario
     def get(self, request, *args, **kwargs):
@@ -103,7 +105,10 @@ class DetalleTicket(DetailView):
 # ---------------------------------EMPLEADO--------------------------------------
 
 # clase para el formulario de añadir empleado
-class CreateEmpleadoView(View):
+class CreateEmpleadoView(LoginRequiredMixin, UserPassesTestMixin, View):
+
+    def test_func(self):
+        return self.request.user.groups.filter(name='').exists()
 
     # Llamada para mostrar la página con el formulario de creación al usuario
     def get(self, request, *args, **kwargs):
@@ -160,7 +165,7 @@ def borradoTicket(request, id):
 
 def editarEmpleado(request, id):
     empleado = Empleado.objects.get(id=id)
-    form = EmpleadoActualizarForm(request.POST or None, instance=empleado)
+    form = EmpleadoForm(request.POST or None, instance=empleado)
     if form.is_valid():
         empleado = form.save(commit=False)
         form.save()
@@ -170,7 +175,7 @@ def editarEmpleado(request, id):
 
 def editarTicket(request, id):
     ticket = Ticket.objects.get(id=id)
-    form = TicketActualizarForm(request.POST or None, instance=ticket)
+    form = TicketForm(request.POST or None, instance=ticket)
     if form.is_valid():
         ticket = form.save(commit=False)
         form.save()

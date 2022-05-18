@@ -19,7 +19,7 @@ class TicketForm(forms.ModelForm):
         model = Ticket
         fields = '__all__'
         widgets = {
-            'fechaApertura': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
+            'fechaApertura': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder': 'Select a date', 'type':'date'}),
             'fechaResolucion': forms.DateInput(format=('%m/%d/%Y'), attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
         }
 
@@ -28,25 +28,4 @@ class TicketForm(forms.ModelForm):
 class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
-        fields = '__all__'
-
-
-#formulario de actualizar empleado
-class EmpleadoActualizarForm(forms.ModelForm):
-    class Meta:
-        model = Empleado
-        fields = '__all__'
-
-
-#formulario de actualizar ticket
-class TicketActualizarForm(forms.ModelForm):
-    class Meta:
-        model = Ticket
-        fields = '__all__'
-
-
-#formulario de actualizar equipo
-class EquipoActualizarForm(forms.ModelForm):
-    class Meta:
-        model = Equipo
         fields = '__all__'
