@@ -69,10 +69,7 @@ class DetalleEquipo(DetailView):
 # ---------------------------------TICKET--------------------------------------
 
 # clase para el formulario de añadir ticket
-class CreateTicketView(LoginRequiredMixin, UserPassesTestMixin, View):
-
-    def test_func(self):
-        return self.request.user.groups.filter(name='Trabajador').exists()
+class CreateTicketView(View):
 
     # Llamada para mostrar la página con el formulario de creación al usuario
     def get(self, request, *args, **kwargs):
@@ -105,10 +102,7 @@ class DetalleTicket(DetailView):
 # ---------------------------------EMPLEADO--------------------------------------
 
 # clase para el formulario de añadir empleado
-class CreateEmpleadoView(LoginRequiredMixin, UserPassesTestMixin, View):
-
-    def test_func(self):
-        return self.request.user.groups.filter(name='').exists()
+class CreateEmpleadoView(View):
 
     # Llamada para mostrar la página con el formulario de creación al usuario
     def get(self, request, *args, **kwargs):
