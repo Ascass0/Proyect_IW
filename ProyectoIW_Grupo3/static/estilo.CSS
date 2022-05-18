@@ -1,9 +1,9 @@
 
+/*------------------------BASE------------------------ */
+
 body{
     margin: 0px;
 }
-
-/*------------------------BASE------------------------ */
 
 header{
     background-color: rgb(188, 207, 227);
@@ -16,12 +16,7 @@ header{
 }
 
 #logoHeader, #menuLogin{
-    margin: 22px;
-    color: white;
-}
-#menuLogin{
-    display: flex;
-    flex-direction: column;
+    margin: 20px;
 }
 
 #loginitems{
@@ -29,17 +24,21 @@ header{
     border-radius: 10px;
     border: rgb(0, 0, 0) solid 1px;
     display: flex;
+    flex-direction: row;
     font-size: 1rem;
-    font-weight: bolder;
-}
-
-#avisoLog{
-    color: black;
-    align-self: center  ;
 }
 
 #loginItem, #logoutItem{
-    margin: 22px;
+    font-size: 20px;
+    margin: 15px;
+    align-items: center;
+}
+
+#textoLogin{
+    color: white;
+    font-size: 18px;
+    margin: 15px;
+    align-items: center;
 }
 
 #enlaceTitulo, .enlaceLOG{
@@ -51,10 +50,10 @@ header{
     text-decoration: underline;
 }
 
-
 #logo_izq{
     height: 100px;
 }
+
 
 
 /*-----------------------INDEX-----------------------*/

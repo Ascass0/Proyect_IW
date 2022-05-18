@@ -19,15 +19,13 @@
         </div>
         <div id="menuLogin">
             <div id="loginitems">
-                <span id="loginItem"><a class="enlaceLOG" href="{% url 'login' %}">Log IN</a></span>
-                <span id="logoutItem"><a class="enlaceLOG" href="{% url 'logout' %}">Log OUT</a></span>
-            </div>
-            <div id="avisoLog">
                 {% if user.is_authenticated %}
-                    <p>Bienvenido  {{ user.username }}! </p>
+                    <span id="textoLogin">Bienvenido  {{ user.username }}!</span>
+                    <span id="logoutItem"><a class="enlaceLOG" href="{% url 'logout' %}">Log OUT</a></span>
                 {% else %}
-                    <p>No estás logeado</p>
-                {% endif %}
+                    <span id="textoLogin">No estás logeado:</span>
+                    <span id="loginItem"><a class="enlaceLOG" href="{% url 'login' %}">Log IN</a></span>
+            {% endif %}
             </div>
         </div>
     </header>
