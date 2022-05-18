@@ -59,7 +59,7 @@ class Ticket(models.Model):
     empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
     numeroReferencia = models.IntegerField(unique=TRUE)
     titulo = models.CharField(max_length=30)
-    descripcion = models.CharField(max_length=300)
+    descripcion = models.Field(max_length=300)
     fechaApertura = models.DateField(blank=True, null=True)
     fechaResolucion = models.DateField(blank=True, null=True)
     nivelUrgencia = models.CharField(max_length=5, choices = NIVEL_URGENCIA_CHOICES, default='MEDIO')
