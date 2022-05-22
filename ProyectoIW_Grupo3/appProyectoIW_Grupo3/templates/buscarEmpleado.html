@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Detalle del empleado "{{empleado.DNI}}" {% endblock %}
+{% block title %} Resultados busqueda Empleado{% endblock %}
 {% block content %}
 
     {%if busqueda%}
@@ -10,20 +10,22 @@
         <table>
             <tr>
                 <th class="esquina"></th>
-                <th>Numero Serie</th>
-                <th>Modelo</th>
+                <th>DNI</th>
+                <th>Email</th>
             </tr>
         {%endif%}
-            {% for eq in resultado %}
+            {% for em in resultado %}
                 <tr>
-                    <th class="numeroCol">{{ eq.id }}</th>
-                    <td>{{ eq.numeroSerie }}</td>
-                    <td>{{ eq.modelo }}</td>
-                    <td class="detalles"><a href="{% url 'detalleEquipo' eq.id %}">Ver detalles</a></td>
+                    <th class="numeroCol">{{ em.id }}</th>
+                    <td>{{ em.DNI }}</td>
+                    <td>{{ em.email }}</td>
+                    <td class="detalles"><a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a></td>
                 </tr>
             {% endfor %}
         </table>
     {%else%}
         <h1>Error al buscar</h1>  
     {%endif%}
+    <br>
+    <a href="/appProyectoIW_Grupo3">INICIO</a>
 {% endblock %}

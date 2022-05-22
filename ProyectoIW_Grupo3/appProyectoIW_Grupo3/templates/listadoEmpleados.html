@@ -3,6 +3,13 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h2>LISTADO DE EMPLEADOS</h2><br>
+        <form method="post" action="{% url 'buscarEmpleado' %}">
+            {% csrf_token %}
+            {{ form.erros }}
+            {{ form.as_p }}
+            <input type="search" placeholder= 'Busca un DNI', name="busqueda">
+            <input type="submit">
+        </form>
         {% if empleado %}
             <table>
                 <tr>

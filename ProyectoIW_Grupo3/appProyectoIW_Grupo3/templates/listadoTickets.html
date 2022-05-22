@@ -3,6 +3,13 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h2>LISTADO DE TICKETS</h2><br>
+        <form method="post" action="{% url 'buscarTicket' %}">
+            {% csrf_token %}
+            {{ form.erros }}
+            {{ form.as_p }}
+            <input type="search" placeholder= 'Busca un título', name="busqueda">
+            <input type="submit">
+        </form>
         {% if ticket %}
             <table>
                 <tr>

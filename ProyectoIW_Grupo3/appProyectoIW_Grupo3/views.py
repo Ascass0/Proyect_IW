@@ -198,13 +198,37 @@ def editarEquipo(request, id):
 
 # ---------------------------------BUSCAR--------------------------------------
 
-def buscar(request):
+def buscarEquipo(request):
     if request.method=='POST':
         busqueda=request.POST.get('busqueda')
         resultado=Equipo.objects.filter(modelo__contains=busqueda)
         prueba=False
         if not resultado:
             prueba = True
-        return render(request, 'buscar.html', {'busqueda':busqueda, 'resultado':resultado, 'prueba':prueba})
+        return render(request, 'buscarEquipo.html', {'busqueda':busqueda, 'resultado':resultado, 'prueba':prueba})
     else:
-        return render(request, 'buscar.html', {})
+        return render(request, 'buscarEquipo.html', {})
+
+
+def buscarTicket(request):
+    if request.method=='POST':
+        busqueda=request.POST.get('busqueda')
+        resultado=Ticket.objects.filter(titulo__contains=busqueda)
+        prueba=False
+        if not resultado:
+            prueba = True
+        return render(request, 'buscarTicket.html', {'busqueda':busqueda, 'resultado':resultado, 'prueba':prueba})
+    else:
+        return render(request, 'buscarTicket.html', {})
+
+
+def buscarEmpleado(request):
+    if request.method=='POST':
+        busqueda=request.POST.get('busqueda')
+        resultado=Empleado.objects.filter(DNI__contains=busqueda)
+        prueba=False
+        if not resultado:
+            prueba = True
+        return render(request, 'buscarEmpleado.html', {'busqueda':busqueda, 'resultado':resultado, 'prueba':prueba})
+    else:
+        return render(request, 'buscarEmpleado.html', {})

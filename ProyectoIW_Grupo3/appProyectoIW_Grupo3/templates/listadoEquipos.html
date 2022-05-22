@@ -3,7 +3,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h2>LISTADO DE EQUIPOS</h2><br>
-        <form method="post" action="{% url 'buscar' %}">
+        <form method="post" action="{% url 'buscarEquipo' %}">
             {% csrf_token %}
             {{ form.erros }}
             {{ form.as_p }}

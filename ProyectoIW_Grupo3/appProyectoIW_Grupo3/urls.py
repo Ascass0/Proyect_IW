@@ -32,6 +32,7 @@ urlpatterns = [
     path('actualizarEquipo/<int:id>/', views.editarEquipo, name='actualizarEquipo'),
 
  #BUSCAR
-   path('buscar', views.buscar, name='buscar'),
-
+   path('buscarEquipo', views.buscarEquipo, name='buscarEquipo'),
+   path('buscarEmpleado', views.buscarEmpleado, name='buscarEmpleado'),
+   path('buscarTicket', views.buscarTicket, name='buscarTicket'),
 ]
