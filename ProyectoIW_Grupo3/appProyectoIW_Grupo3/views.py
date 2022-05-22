@@ -1,4 +1,5 @@
 
+from asyncio.windows_events import NULL
 from pickle import FALSE, TRUE
 from unicodedata import name
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
@@ -201,6 +202,9 @@ def buscar(request):
     if request.method=='POST':
         busqueda=request.POST.get('busqueda')
         resultado=Equipo.objects.filter(modelo__contains=busqueda)
-        return render(request, 'buscar.html', {'busqueda':busqueda, 'resultado': resultado})
+        prueba=False
+        if not resultado:
+            prueba = True
+        return render(request, 'buscar.html', {'busqueda':busqueda, 'resultado':resultado, 'prueba':prueba})
     else:
         return render(request, 'buscar.html', {})

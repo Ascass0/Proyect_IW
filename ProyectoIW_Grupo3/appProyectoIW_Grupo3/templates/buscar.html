@@ -3,13 +3,17 @@
 {% block content %}
 
     {%if busqueda%}
-        <h1>BUSCANDO...{{busqueda}}</h1>
+        <h1>RESULTADOS PARA '{{busqueda}}'</h1>
+        {%if prueba%}
+            No hay resultados para la búsqueda
+        {%else%}
         <table>
             <tr>
                 <th class="esquina"></th>
                 <th>Numero Serie</th>
                 <th>Modelo</th>
             </tr>
+        {%endif%}
             {% for eq in resultado %}
                 <tr>
                     <th class="numeroCol">{{ eq.id }}</th>
