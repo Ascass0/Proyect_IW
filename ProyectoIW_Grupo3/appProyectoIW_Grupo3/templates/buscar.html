@@ -4,9 +4,21 @@
 
     {%if busqueda%}
         <h1>BUSCANDO...{{busqueda}}</h1>
-        {%for a in resultado%}
-            {{a}}
-        {%endfor%}
+        <table>
+            <tr>
+                <th class="esquina"></th>
+                <th>Numero Serie</th>
+                <th>Modelo</th>
+            </tr>
+            {% for eq in resultado %}
+                <tr>
+                    <th class="numeroCol">{{ eq.id }}</th>
+                    <td>{{ eq.numeroSerie }}</td>
+                    <td>{{ eq.modelo }}</td>
+                    <td class="detalles"><a href="{% url 'detalleEquipo' eq.id %}">Ver detalles</a></td>
+                </tr>
+            {% endfor %}
+        </table>
     {%else%}
         <h1>Error al buscar</h1>  
     {%endif%}

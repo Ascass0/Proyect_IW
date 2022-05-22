@@ -198,9 +198,9 @@ def editarEquipo(request, id):
 # ---------------------------------BUSCAR--------------------------------------
 
 def buscar(request):
-    if request.method=='GET':
-        busqueda=request.GET.get('busqueda')
-        resultado=Equipo.objects.filter(modelo___contains=busqueda)
+    if request.method=='POST':
+        busqueda=request.POST.get('busqueda')
+        resultado=Equipo.objects.filter(modelo__contains=busqueda)
         return render(request, 'buscar.html', {'busqueda':busqueda, 'resultado': resultado})
     else:
         return render(request, 'buscar.html', {})
