@@ -6,16 +6,16 @@
         {% if ticket %}
             <table>
                 <tr>
-                    <th></th>
+                    <th class="esquina"></th>
                     <th>Titulo</th>
                     <th>Estado</th>
                 </tr>
                 {% for tick in ticket %}
                 <tr>
-                    <th>{{ tick.id }}</th>
+                    <th class="numeroCol">{{ tick.id }}</th>
                     <td>{{ tick.titulo }}</td>
                     <td>{{ tick.estado }}</td>
-                    <td><a href="{% url 'detalleTicket' tick.id %}">ver detalles</a></td>
+                    <td class="detalles"><a href="{% url 'detalleTicket' tick.id %}">ver detalles</a></td>
                 </tr>
                 {% endfor %}
             </table>

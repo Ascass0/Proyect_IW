@@ -6,16 +6,16 @@
         {% if empleado %}
             <table>
                 <tr>
-                    <th></th>
+                    <th class="esquina"></th>
                     <th>DNI</th>
                     <th>Email</th>
                 </tr>
                 {% for em in empleado %}
                 <tr>
-                    <th>{{ em.id }}</th>
+                    <th class="numeroCol">{{ em.id }}</th>
                     <td>{{ em.DNI }}</td>
                     <td>{{ em.email }}</td>
-                    <td><a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a></td>
+                    <td class="detalles"><a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a></td>
                 </tr>
                 {% endfor %}
             </table>

@@ -12,32 +12,58 @@
 
 <body>
     <header>
-        <div id="logoHeader"><img id="logo_izq" src="{%static 'imagenes/logo.png'%}" alt="Error, no se pudo cargar.">
-        </div>
-        <div id="tituloHeader">
-            <h1><a id="enlaceTitulo" href="/appProyectoIW_Grupo3">DEUSTOMACH INNOVATION SL</a></h1>
-        </div>
-        <div id="menuLogin">
+        <div id="superior">
+            <div id="logoHeader"><img id="logo_izq" src="{%static 'imagenes/logo.png'%}"
+                    alt="Error, no se pudo cargar."></div>
             <div id="loginitems">
                 {% if user.is_authenticated %}
-                    <span id="textoLogin">Bienvenido  {{ user.username }}!</span>
-                    <span id="logoutItem"><a class="enlaceLOG" href="{% url 'logout' %}">Log OUT</a></span>
+                <span id="textoLogin">Bienvenido {{ user.username }}!</span>
+                <span id="logoutItem"><a class="enlaceLOG" href="{% url 'logout' %}">Log OUT</a></span>
                 {% else %}
-                    <span id="textoLogin">No estás logeado:</span>
-                    <span id="loginItem"><a class="enlaceLOG" href="{% url 'login' %}">Log IN</a></span>
-            {% endif %}
+                <span id="textoLogin">No estás logeado:</span>
+                <span id="loginItem"><a class="enlaceLOG" href="{% url 'login' %}">Log IN</a></span>
+                {% endif %}
+            </div>
+        </div>
+        <div id="intermedio">
+            <div id="tituloHeader">
+                <h1><a id="enlaceTitulo" href="/appProyectoIW_Grupo3">DEUSTOMACH INNOVATION SL</a></h1>
+            </div>
+        </div>
+        <div id="inferior">
+            <div id="menu">
+                <span class="menuitem"><a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoEquipos">LISTADO DE
+                        EQUIPOS</a></span>
+                <span class="menuitem"><a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoTickets">LISTADO DE
+                        TICKETS</a></span>
+                <span class="menuitem"><a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoEmpleados">LISTADO DE
+                        EMPLEADOS</a></span>
             </div>
         </div>
     </header>
-    <div class="menu">
-        <a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoEquipos">LISTADO DE EQUIPOS</a><br>
-        <a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoTickets">LISTADO DE TICKETS</a><br>
-        <a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoEmpleados">LISTADO DE EMPLEADOS</a>
+
+    <div id="layout">
+        <aside id="barraIZQ">
+
+        </aside>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
+
+    <footer>
+        <span class="emailFTR">Deustomach@gmail.com</span>
+        <span class="contactoFTR"><a class="aFooter" href="">Contacto</a> </span>
+        <div class="iconosFTR">
+            <span class="FB"><a href="https://facebook.com" target="_blank"><img src="../static/imagenes/facebook.png"
+                        height="24" alt="Imagen no encontrada"></a></span>
+            <span class="IN"><a href="https://instagram.com" target="_blank"><img src="../static/imagenes/instagram.png"
+                        height="24" alt="Imagen no encontrada"></a></span>
+            <span class="YT"><a href="https://youtube.com" target="_blank"><img src="../static/imagenes/youtube.png"
+                        height="24" alt="Imagen no encontrada"></a></span>
+        </div>
+    </footer>
 </body>
 
 </html>
