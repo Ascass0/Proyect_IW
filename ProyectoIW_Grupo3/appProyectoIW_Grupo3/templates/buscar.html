@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Detalle del empleado "{{empleado.DNI}}" {% endblock %}
+{% block content %}
+
+    {%if busqueda%}
+        <h1>BUSCANDO...{{busqueda}}</h1>
+        {%for a in resultado%}
+            {{a}}
+        {%endfor%}
+    {%else%}
+        <h1>Error al buscar</h1>  
+    {%endif%}
+{% endblock %}

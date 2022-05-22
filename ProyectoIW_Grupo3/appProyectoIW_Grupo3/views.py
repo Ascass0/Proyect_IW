@@ -1,12 +1,18 @@
 
 from pickle import FALSE, TRUE
+from unicodedata import name
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Equipo, Ticket, Empleado
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import View
 from django.views.generic import DetailView
 from .forms import EquipoForm, TicketForm, EmpleadoForm
-from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin 
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.db.models import CharField
+from django.db.models.functions import Lower
+
+CharField.register_lookup(Lower)
+ 
 
 # devuelve la página principal
 def index(request):
@@ -185,3 +191,16 @@ def editarEquipo(request, id):
         form.save()
         return redirect('listadoEquipos')
     return render(request, 'actualizarEquipo.html', {"titulo": 'actualizar equipo', "form": form})
+
+
+
+
+# ---------------------------------BUSCAR--------------------------------------
+
+def buscar(request):
+    if request.method=='GET':
+        busqueda=request.GET.get('busqueda')
+        resultado=Equipo.objects.filter(modelo___contains=busqueda)
+        return render(request, 'buscar.html', {'busqueda':busqueda, 'resultado': resultado})
+    else:
+        return render(request, 'buscar.html', {})

@@ -30,4 +30,8 @@ urlpatterns = [
     path('actualizarEmpleado/<int:id>/', views.editarEmpleado, name='actualizarEmpleado'),
     path('actualizarTicket/<int:id>/', views.editarTicket, name='actualizarTicket'),
     path('actualizarEquipo/<int:id>/', views.editarEquipo, name='actualizarEquipo'),
+
+ #BUSCAR
+   path('buscar', views.buscar, name='buscar'),
+
 ]
