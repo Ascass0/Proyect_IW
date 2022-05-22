@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Resultados busqueda Ticket{% endblock %}
+{% block content %}
+
+    {%if busqueda%}
+        <h1>RESULTADOS PARA '{{busqueda}}'</h1>
+        {%if prueba%}
+            No hay resultados para la búsqueda
+        {%else%}
+        <table>
+            <tr>
+                <th class="esquina"></th>
+                <th>Titulo</th>
+                <th>Estado</th>
+            </tr>
+        {%endif%}
+            {% for tick in resultado %}
+                <tr>
+                    <th class="numeroCol">{{ tick.id }}</th>
+                    <td>{{ tick.titulo }}</td>
+                    <td>{{ tick.estado }}</td>
+                    <td class="detalles"><a href="{% url 'detalleTicket' tick.id %}">ver detalles</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {%else%}
+        <h1>Error al buscar</h1>  
+    {%endif%}
+    <br>
+    <a href="/appProyectoIW_Grupo3">INICIO</a>
+{% endblock %}
