@@ -2,7 +2,7 @@
 {% block title %} Listado tickets {% endblock %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h2>LISTADO DE TICKETS</h2><br>
+        <h2 id="perico">LISTADO DE TICKETS</h2><br>
         <form method="post" action="{% url 'buscarTicket' %}">
             {% csrf_token %}
             {{ form.erros }}
@@ -31,7 +31,9 @@
         {% endif %}
         <a href="/appProyectoIW_Grupo3/listadoTickets/anadirTicket">AÑADIR TICKET</a>
         <br>
-        <a href="/appProyectoIW_Grupo3">INICIO</a>
+        <a href="/appProyectoIW_Grupo3">INICIO</a><br>
+        <button id="zoomOut">-</button>
+        <button id="zoomIn">+</button>
     {% else %}
         <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>
