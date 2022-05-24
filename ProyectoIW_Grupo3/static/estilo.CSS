@@ -112,6 +112,12 @@ footer {
     display: flex;
     justify-content: space-evenly;
     color: white;
+    clear: both;
+    position:relative;
+    height: 45px;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0.0000005px;
 }
 
 .emailFTR,
