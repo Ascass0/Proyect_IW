@@ -13,106 +13,103 @@ header {
     display: flex;
     flex-direction: column;
 }
-    #superior {
-        background: rgb(9, 9, 9);
-        margin: 0px;
-        display: flex;
-        justify-content: space-between;
-    }
-        #loginitems {
-            display: flex;
-            flex-direction: row;
-            font-size: 1rem;
-            justify-content: right;
-            align-items: center;
-            padding: 5px 25px 5px 15px;
-        }
+#superior {
+    background: rgb(9, 9, 9);
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+#loginitems {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    justify-content: right;
+    align-items: center;
+    padding: 5px 25px 5px 15px;
+}
         
-        #loginItem,
-        #logoutItem {
-            font-size: 20px;
-            align-items: center;
-            border: #0000, solid, 1px;
-            background: rgb(5, 44, 88);
-            background: linear-gradient(90deg, rgba(5, 44, 88, 1) 10%, rgba(69, 135, 210, 1) 100%);
-            border-radius: 5px;
-            padding: 10px;
-        }
+#loginItem,
+#logoutItem {
+    font-size: 20px;
+    align-items: center;
+    border: #0000, solid, 1px;
+    background: rgb(5, 44, 88);
+    background: linear-gradient(90deg, rgba(5, 44, 88, 1) 10%, rgba(69, 135, 210, 1) 100%);
+    border-radius: 5px;
+    padding: 10px;
+}
         
-        #textoLogin {
-            color: rgb(255, 255, 255);
-            font-size: 18px;
-            margin: 15px;
-            align-items: center;
-        }
-        
-        #enlaceTitulo,
-        .enlaceLOG {
-            text-decoration: none;
-            color: whitesmoke;
-        }
-        
-        
-        .enlaceLOG:hover {
-            text-decoration: underline;
-        }
+#textoLogin {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    margin: 15px;
+    align-items: center;
+}
 
-        #logo_izq {
-            height: 60px;
-        }
-
-
-    #intermedio {
-        background-color: rgb(188, 207, 227);
-        height: 250px;
-        border-bottom: 3px solid rgb(0, 0, 0);
-        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../static/imagenes/usgs-hoS3dzgpHzw-unsplash.jpg    ");
-        background-position: center;
-        background-size: cover;
+#enlaceTitulo,
+.enlaceLOG {
+    text-decoration: none;
+    color: whitesmoke;
+}
         
-    }
-        #tituloHeader {
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-            font-size: 20px;
-            letter-spacing: 3px;
-            word-spacing: 15px;
-            display: flex;
-            justify-content: center;
-            vertical-align: middle;
-        }
+        
+.enlaceLOG:hover {
+    text-decoration: underline;
+}
+
+#logo_izq {
+    height: 60px;
+}
+
+
+#intermedio {
+background-color: rgb(188, 207, 227);
+height: 250px;
+border-bottom: 3px solid rgb(0, 0, 0);
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../static/imagenes/usgs-hoS3dzgpHzw-unsplash.jpg    ");
+background-position: center;
+background-size: cover;
+
+}
+#tituloHeader {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    word-spacing: 15px;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
 
 
             
-    #inferior {
-        background-color: rgb(9, 9, 9);
-    }
-        #menu {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 12px;
-            margin-bottom: 12px;
-        }
+#inferior {
+    background-color: rgb(9, 9, 9);
+}
+#menu {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
 
-        .menuitem {
-            font-size: 16px;
-            background: linear-gradient(90deg, rgba(5, 44, 88, 1) 10%, rgba(69, 135, 210, 1) 100%);
-            border-radius: 5px;
-            padding: 15px;
-            width: 30%; 
-            text-align: center;
-        }
+.menuitem {
+    font-size: 16px;
+    background: linear-gradient(90deg, rgba(5, 44, 88, 1) 10%, rgba(69, 135, 210, 1) 100%);
+    border-radius: 5px;
+    padding: 15px;
+    width: 30%; 
+    text-align: center;
+}
 
 /*.....footer..... */
 footer {
     background-color: rgb(31, 30, 30);
-    height: 50px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     display: flex;
+    margin-top: 50px;
     justify-content: space-evenly;
     color: white;
-    clear: both;
     position:relative;
     height: 45px;
 }
@@ -171,8 +168,7 @@ footer {
 }
 
 #content {
-    height: 100vh;
-    flex: 4;
+    height: 100%;
     padding-top: 2em;
     padding-left: 2em;
     background: rgb(255, 255, 255);
