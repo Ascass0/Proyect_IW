@@ -31,7 +31,10 @@
         {% endif %}
         <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
         <br>
-        <a href="/appProyectoIW_Grupo3">INICIO</a>
+        <a href="/appProyectoIW_Grupo3">INICIO</a><br>
+        <button id="zoomOut">-</button>
+        <button id="restablecer">Restablecer</button>
+        <button id="zoomIn">+</button>
     {% else %}
         <p>Accede para poder ver el contenido</p>
         <a href="{% url 'login' %}">Log In</a>
