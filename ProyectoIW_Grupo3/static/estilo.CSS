@@ -1,11 +1,23 @@
 /*------------------------BASE------------------------ */
 
-html,
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
 body {
+    height: 100%;
     margin: 0px;
     padding: 0px;
-    min-height: 100%;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
+    background: rgb(255, 255, 255);
 }
 
 /*.....header..... */
@@ -13,12 +25,22 @@ header {
     display: flex;
     flex-direction: column;
 }
+
+.tituloHerencia {
+    display: flex;
+    font-size: 40px;
+    color: white;
+    align-items: center;
+}
+
 #superior {
-    background: rgb(9, 9, 9);
+    background: rgb(15, 15, 15);
     margin: 0px;
     display: flex;
     justify-content: space-between;
+    border-bottom: #337bc4, 3px, solid;
 }
+
 #loginitems {
     display: flex;
     flex-direction: row;
@@ -27,21 +49,32 @@ header {
     align-items: center;
     padding: 5px 25px 5px 15px;
 }
-        
+
 #loginItem,
 #logoutItem {
-    font-size: 20px;
+    font-size: 16px;
     align-items: center;
-    border: #0000, solid, 1px;
-    background: rgb(5, 44, 88);
-    background: linear-gradient(90deg, rgba(5, 44, 88, 1) 10%, rgba(69, 135, 210, 1) 100%);
-    border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 2px;
+    background: #3D94F6;
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+    color: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 20px 0 #000000;
+    -moz-box-shadow: 1px 1px 20px 0 #000000;
+    box-shadow: 1px 1px 20px 0 #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #337FED 1px;
+    text-decoration: none;
+    cursor: pointer;
 }
-        
+
 #textoLogin {
     color: rgb(255, 255, 255);
-    font-size: 18px;
+    font-size: 20px;
     margin: 15px;
     align-items: center;
 }
@@ -51,68 +84,69 @@ header {
     text-decoration: none;
     color: whitesmoke;
 }
-        
-        
+
+
 .enlaceLOG:hover {
     text-decoration: underline;
 }
 
 #logo_izq {
-    height: 60px;
+    height: 120px;
 }
 
-
-#intermedio {
-background-color: rgb(188, 207, 227);
-height: 250px;
-border-bottom: 3px solid rgb(0, 0, 0);
-background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../static/imagenes/usgs-hoS3dzgpHzw-unsplash.jpg    ");
-background-position: center;
-background-size: cover;
-
-}
-#tituloHeader {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-size: 20px;
-    letter-spacing: 3px;
-    word-spacing: 15px;
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-}
-
-
-            
-#inferior {
-    background-color: rgb(9, 9, 9);
-}
 #menu {
     display: flex;
-    justify-content: space-around;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    justify-content: space-evenly;
+    padding: 2em 0em;
+    background-color: rgb(15, 15, 15);
 }
 
 .menuitem {
-    font-size: 16px;
-    background: linear-gradient(90deg, rgba(5, 44, 88, 1) 10%, rgba(69, 135, 210, 1) 100%);
-    border-radius: 5px;
-    padding: 15px;
-    width: 30%; 
     text-align: center;
+    width: 40%;
 }
+
+.menuitem:hover,
+.menuitem:focus {
+    transform: translateY(-0.35em);
+}
+
+#enlaceIndex1, #enlaceIndex2, #enlaceIndex3{
+    background: #3D94F6;
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+    color: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 20px 0 #000000;
+    -moz-box-shadow: 1px 1px 20px 0 #000000;
+    box-shadow: 1px 1px 20px 0 #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #337FED 1px;
+    text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 3% 28%;
+    border-radius: 10px;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
 
 /*.....footer..... */
 footer {
     background-color: rgb(31, 30, 30);
-    width: 100%;
     display: flex;
-    margin-top: 50px;
     justify-content: space-evenly;
     color: white;
-    position:relative;
-    height: 45px;
+    position: absolute;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 50px;
 }
+
 
 .emailFTR,
 .contactoFTR {
@@ -120,7 +154,6 @@ footer {
     font-size: 16px;
     padding: 7px;
     display: flex;
-    padding: 10px, 0px;
 }
 
 .iconosFTR {
@@ -163,67 +196,215 @@ footer {
 
 
 /*-----------------------INDEX-----------------------*/
-#layout {
+
+
+#Portada {
+    background-color: rgb(188, 207, 227);
+    height: 600px;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../static/imagenes/Passionate-about-Machines-1080x675.jpg    ");
+    background-position: center;
+    background-size: cover;
     display: flex;
-}
-
-#content {
-    height: 100%;
-    padding-top: 2em;
-    padding-left: 2em;
-    background: rgb(255, 255, 255);
-}
-
-#enlaceIndex {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-}
-
-#enlaceIndex:hover {
-    text-decoration: underline;
+    flex-direction: column;
 }
 
 
+#tituloHeader {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+    word-spacing: 15px;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 3
+}
 
-
+.textoportada {
+    display: flex;
+    flex: 2;
+    color: white;
+    margin: 0em 15em;
+    font-size: 21px;
+    line-height: 55px;
+    text-align: center;
+}
 
 /*-----------------------LISTADO-----------------------*/
 
-table {
-    border-collapse: collapse;
+
+h2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 32px;
+    word-spacing: 10px;
 }
 
-th {
+.tabla {
+    display: flex;
+    justify-content: center;
+}
+
+.pretabla {
+    display: flex;
+    padding-bottom: 1.5em;
+}
+
+.botonesIZQ {
+    margin-left: 7em;
+    margin-top: 5em;
+    display: flex;
+}
+
+.divbuscador,
+.divbotonAñadir {
+    margin-right: 1.2em;
+    margin-left: 1.2em;
+}
+
+.botonesDER {
+    justify-content: right;
+    display: flex;
+    margin-top: 3.8em;
+}
+
+.izquierda {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    margin-top: 1em;
+}
+
+.derecha {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 2em;
+    margin-right: 3em;
+}
+
+.boton, #botonAñadir, #botonbusq, #botonenviar{
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    color: #24292E;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 16px;
+    padding: 8px 18px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#botonbusq{
+    cursor: default;
+}
+
+
+
+#botonAñadir:hover, #botonenviar:hover{
+    background: #127D16;
+    background-image: -webkit-linear-gradient(top, #127D16, #409A1C);
+    background-image: -moz-linear-gradient(top, #127D16, #409A1C);
+    background-image: -ms-linear-gradient(top, #127D16, #409A1C);
+    background-image: -o-linear-gradient(top, #127D16, #409A1C);
+    border: solid #000000 1px;
+    filter:alpha(opacity=50); opacity:0.8;
+    color: black;
+    font-weight: 450;
+}
+
+
+.botonInicio {
+    margin-left: 8em;
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+
+
+/*parte de la tabla*/
+table {
+    border-collapse: collapse;
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    max-width: 70%;
+    background-color: white;
+    font-size: 18px;
+}
+
+.th2,
+.th1 {
+    color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    padding: 20px;
     text-align: center;
-    vertical-align: top;
-    border: 1px solid #000;
-    padding: 15px;
-    background-color: rgba(99, 155, 223, 0.521);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+.th1 {
+    border-top-left-radius: 10px;
+    color: #ffffff;
+    background: #324960;
+}
+
+.th2 {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
+
+tbody tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:nth-child(even) {
+    background-color: #f1f2f3ae;
 }
 
 td {
-    text-align: center;
-    vertical-align: middle;
-    border: 1px solid #000;
     padding: 15px;
-    padding-right: 30px;
-    padding-left: 30px;
-    border-right: none;
-    border-left: none;
+    text-align: left;
+    vertical-align: middle;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+    border-left: 1px solid #C1C3D1;
+    text-align: center;
 }
 
 .detalles {
-    background-color: rgba(117, 238, 198, 0.399);
+    text-decoration: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    color: #24292E;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    padding: 8px 18px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.detalles:hover {
+    background-color: rgb(247, 253, 247);
+    text-decoration: none;
+    transition-duration: 0.1s;
 }
 
 
-.esquina {
-    border-top: none;
-    border-left: none;
-    border-bottom: none;
-    background-color: white;
-}
-
-.numeroCol {
-    background-color: white;
+#popup {
+    border: solid black 1px;
+    border-radius: 5px;
+    margin-left: 2em;
+    padding: 1em;
+    text-align: center;
+    background-color: rgb(247, 253, 247);
+    visibility: hidden;
+    height: 30%;
 }

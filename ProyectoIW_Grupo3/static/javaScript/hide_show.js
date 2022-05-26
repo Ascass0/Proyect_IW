@@ -1,19 +1,24 @@
-let over = document.getElementsByTagName('a')
-for(el of over){
+
+
+let over = document.getElementsByClassName("detalles")
+for (el of over) {
   el.addEventListener('mouseover', show);
 }
 
-function show(event){
+function show(event) {
   event.preventDefault();
-  document.getElementById("popup").style.visibility="visible";
+  document.getElementById("popup").style.visibility = "visible";
 }
 
-let out = document.getElementsByTagName('a')
-for(el of out){
+let out = document.getElementsByClassName("detalles")
+for (el of out) {
   el.addEventListener('mouseout', hide);
 }
 
-function hide(event){
-    event.preventDefault();
-    document.getElementById("popup").style.visibility="hidden";
-  }
+function hide(event) {
+  event.preventDefault();
+  document.getElementById("popup").style.visibility = "hidden";
+}
+
+
+ 

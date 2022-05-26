@@ -1,43 +1,78 @@
 {% extends "base.html" %}
-{% block title %}Listado Empleados{% endblock %}
+{% block title %} Listado equipos {% endblock %}
+{% block superior %}Deustomach Innovation{% endblock %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <h2>LISTADO DE EMPLEADOS</h2><br>
-        <form method="post" action="{% url 'buscarEmpleado' %}">
-            {% csrf_token %}
-            {{ form.erros }}
-            {{ form.as_p }}
-            <input type="search" placeholder= 'Busca un DNI', name="busqueda">
-            <input type="submit">
-        </form>
-        {% if empleado %}
-            <table>
-                <tr>
-                    <th class="esquina"></th>
-                    <th>DNI</th>
-                    <th>Email</th>
-                </tr>
-                {% for em in empleado %}
-                <tr>
-                    <th class="numeroCol">{{ em.id }}</th>
-                    <td>{{ em.DNI }}</td>
-                    <td>{{ em.email }}</td>
-                    <td class="detalles"><a href="{% url 'detalleEmpleado' em.id %}">ver detalles</a></td>
-                </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-        <p>No hay empleados en la empresa.</p>
-        {% endif %}
-        <a href="/appProyectoIW_Grupo3/listadoEmpleados/anadirEmpleado">AÑADIR EMPLEADO</a>
-        <br>
-        <a href="/appProyectoIW_Grupo3">INICIO</a><br>
-        <button id="zoomOut">-</button>
-        <button id="restablecer">Restablecer</button>
-        <button id="zoomIn">+</button>
-    {% else %}
-        <p>Accede para poder ver el contenido</p>
-        <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-{% endblock %}
+{% if user.is_authenticated %}
+<div class="pretabla">
+    <div class="izquierda">
+        <div class="botonesIZQ">
+            <div class="divbuscador">
+                <form method="post" action="{% url 'buscarEmpleado' %}">
+                    {% csrf_token %}
+                    {{ form.erros }}
+                    {{ form.as_p }}
+                    <input type="search" placeholder='Busca un DNI' , name="busqueda" , class="boton">
+                    <input type="submit" class="boton">
+                </form>
+            </div>
+            <div class="divbotonAñadir">
+                <form action="{% url 'anadirEmpleado' %}">
+                    <input type="submit" value="Añadir nuevo" class="boton" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="derecha">
+        <div class="botonesDER">
+            <div class="botonesZoom">
+                <button id="zoomOut" class="boton">-</button>
+                <button id="restablecer" class="boton">Restablecer</button>
+                <button id="zoomIn" class="boton">+</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="tabla">
+    {% if empleado %}
+    <table>
+        <thead>
+            <tr>
+                <th class="th1">DNI</th>
+                <th class="th2">Nombre</th>
+                <th class="esquina"></th>
+            </tr>
+        </thead>
+        {% for em in empleado %}
+        <tr>
+            <td>{{ em.DNI }}</td>
+            <td>{{ em.nombre }}</td>
+            <td><a href="{% url 'detalleEmpleado' em.id %}" class="detalles">Ver detalles</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div id="popup">
+        <h2>Consultar Detalles</h2>
+        <p>Aquí puedes consultar los detalles</p>
+        <p>de un equipo en concreto.</p>
+    </div>
+
+    {% else %}
+    <p>No hay tickets creados.</p>
+    {% endif %}
+
+    {% else %}
+    <p>Accede para poder ver el contenido</p>
+    <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+
+
+</div>
+
+<div class="botonInicio">
+    <form action="{% url 'index' %}">
+        <input type="submit" value="INICIO" class="boton" />
+    </form>
+</div>
+
+{% endblock %}

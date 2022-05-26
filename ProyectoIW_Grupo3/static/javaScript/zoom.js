@@ -26,8 +26,12 @@ function contadorMinus() {
     document.getElementsByTagName("table")[0].style.fontSize = tamaño;
 }
 
-document.getElementById("restablecer").addEventListener("click", function() {
-    document.getElementsByTagName("table")[0].style.fontSize = '16px';
-});
+function restablecerZoom() {
+    contMenos = 0;
+    contMas = 0;
+    document.getElementsByTagName("table")[0].style.fontSize = '18px';
+};
+
 document.getElementById("zoomIn").addEventListener("click", contadorPlus);
 document.getElementById("zoomOut").addEventListener("click", contadorMinus);
+document.getElementById("restablecer").addEventListener("click", restablecerZoom);

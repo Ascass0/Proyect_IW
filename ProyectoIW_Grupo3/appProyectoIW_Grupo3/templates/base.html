@@ -8,14 +8,17 @@
     <title>{% block title %}Base{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{%static 'estilo.CSS'%}">
-    
+
 </head>
 
 <body>
     <header>
         <div id="superior">
-            <div id="logoHeader"><img id="logo_izq" src="{%static 'imagenes/logo.png'%}"
-                    alt="Error, no se pudo cargar."></div>
+            <div id="logoHeader"><a id="enlaceTitulo" href="/appProyectoIW_Grupo3"><img id="logo_izq"
+                        src="{%static 'imagenes/logo.png'%}" alt="Error, no se pudo cargar."></a></div>
+            <div class="tituloHerencia">
+                {% block superior %}{% endblock %}
+            </div>
             <div id="loginitems">
                 {% if user.is_authenticated %}
                 <span id="textoLogin">Bienvenido {{ user.username }}!</span>
@@ -26,28 +29,21 @@
                 {% endif %}
             </div>
         </div>
-        <div id="intermedio">
-            <div id="tituloHeader">
-                <h1><a id="enlaceTitulo" href="/appProyectoIW_Grupo3">DEUSTOMACH INNOVATION SL</a></h1>
-            </div>
-        </div>
         <div id="inferior">
             <div id="menu">
-                <span class="menuitem"><a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoEquipos">LISTADO DE
-                        EQUIPOS</a></span>
-                <span class="menuitem"><a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoTickets">LISTADO DE
+                <span class="menuitem"><a id=enlaceIndex1 href="/appProyectoIW_Grupo3/listadoEquipos">LISTADO DE
+                    EQUIPOS</a></span>
+                <span class="menuitem"><a id=enlaceIndex2 href="/appProyectoIW_Grupo3/listadoTickets">LISTADO DE
                         TICKETS</a></span>
-                <span class="menuitem"><a id=enlaceIndex href="/appProyectoIW_Grupo3/listadoEmpleados">LISTADO DE
+                <span class="menuitem"><a id=enlaceIndex3 href="/appProyectoIW_Grupo3/listadoEmpleados">LISTADO DE
                         EMPLEADOS</a></span>
             </div>
         </div>
     </header>
     <main>
-        <div id="layout">
-            <div id="content">
-                {% block content %}
-                {% endblock %}
-            </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
         </div>
     </main>
     <footer>
@@ -64,4 +60,7 @@
     </footer>
 </body>
 <script src="/static/javaScript/zoom.js"></script>
+<script src="/static/javaScript/hide_show.js"></script>
+<script src="/static/javaScript/menu_color.js"></script>
+
 </html>
