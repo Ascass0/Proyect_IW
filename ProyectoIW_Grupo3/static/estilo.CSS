@@ -244,7 +244,8 @@ h2 {
 
 .tabla {
     display: flex;
-    justify-content: center;
+    justify-content: center;  
+    align-items: center;
 }
 
 .pretabla {
@@ -407,4 +408,27 @@ td {
     background-color: rgb(247, 253, 247);
     visibility: hidden;
     height: 30%;
+}
+
+
+/*___________________LOGIN_______________________*/
+
+#login{
+    border: solid black 5px;
+    background-color: #4da1dd;
+    
+    border-radius: 8%;
+    width: 200px;
+    padding: 20px;
+    height:fit-content;
+}
+
+#login_contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    background-image: url("../static/imagenes/fondo_login.jpg"); 
+    background-position: center;
+    background-size: cover;
 }
