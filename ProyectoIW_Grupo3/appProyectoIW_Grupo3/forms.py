@@ -29,7 +29,7 @@ class TicketForm(forms.ModelForm):
             'fechaApertura': forms.DateInput(attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
             'fechaResolucion': forms.DateInput(attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
             'descripcion': forms.Textarea(attrs={'cols' : 50, 'rows' : 3}),
-            'comentarios': forms.Textarea(attrs={'cols' : 100, 'rows' : 10}),
+            'comentarios': forms.Textarea(attrs={'cols' : 50, 'rows' : 10}),
         }
 
 

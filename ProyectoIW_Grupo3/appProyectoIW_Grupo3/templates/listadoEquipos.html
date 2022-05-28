@@ -51,28 +51,30 @@
         </tr>
         {% endfor %}
     </table>
+
     <div id="popup">
         <h2>Consultar Detalles</h2>
         <p>Aquí puedes consultar los detalles</p>
         <p>de un equipo en concreto.</p>
     </div>
-
-    {% else %}
-    <p>No hay equipos creados.</p>
-    {% endif %}
-
-    {% else %}
-    <p>Accede para poder ver el contenido</p>
-    <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-   
-
 </div>
-
 <div class="botonInicio">
     <form action="{% url 'index' %}">
         <input type="submit" value="INICIO" class="boton" />
     </form>
 </div>
+{% else %}
+<p>No hay equipos creados.</p>
+{% endif %}
 
+{% else %}
+<div class="divLogout">
+    <span id="textologin">
+        <p>Accede para poder ver el contenido</p>
+    </span>
+    <span id="enlacelogin">
+        <a href="{% url 'login' %}">Log In</a>
+    </span>
+    {% endif %}
+</div>
 {% endblock %}

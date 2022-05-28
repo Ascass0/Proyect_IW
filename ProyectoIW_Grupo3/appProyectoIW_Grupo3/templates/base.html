@@ -17,7 +17,7 @@
             <div id="logoHeader"><a id="enlaceTitulo" href="/appProyectoIW_Grupo3"><img id="logo_izq"
                         src="{%static 'imagenes/logo.png'%}" alt="Error, no se pudo cargar."></a></div>
             <div class="tituloHerencia">
-                {% block superior %}{% endblock %}
+                <a href="/appProyectoIW_Grupo3" id="enlaceTitulo">{% block superior %}{% endblock %}</a>
             </div>
             <div id="loginitems">
                 {% if user.is_authenticated %}
@@ -50,11 +50,11 @@
         <span class="emailFTR">Deustomach@gmail.com</span>
         <span class="contactoFTR"><a class="aFooter" href="">Contacto</a> </span>
         <div class="iconosFTR">
-            <span class="FB"><a href="https://facebook.com" target="_blank"><img src="../static/imagenes/facebook.png"
+            <span class="FB"><a href="https://facebook.com" target="_blank"><img src="{% static 'imagenes/facebook.png' %}"
                         height="24" alt="Imagen no encontrada"></a></span>
-            <span class="IN"><a href="https://instagram.com" target="_blank"><img src="../static/imagenes/instagram.png"
+            <span class="IN"><a href="https://instagram.com" target="_blank"><img src="{% static 'imagenes/instagram.png' %}"
                         height="24" alt="Imagen no encontrada"></a></span>
-            <span class="YT"><a href="https://youtube.com" target="_blank"><img src="../static/imagenes/youtube.png"
+            <span class="YT"><a href="https://youtube.com" target="_blank"><img src="{% static 'imagenes/youtube.png' %}"
                         height="24" alt="Imagen no encontrada"></a></span>
         </div>
     </footer>

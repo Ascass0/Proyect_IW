@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 {% block title %} Actualizar empleado {% endblock %}
+{% block superior%} Deustomach Innovation {% endblock %}
 {% block content %}
+<div class="tituloAñadir">
+    <h2>Actualizar empleado</h2>
+</div>
+<div class="formAñadir">
     <form method="post">
-    {% csrf_token %}
-    {{ form.erros }}
-    {{ form.as_p }}
-    <br><input type="submit" value="Actualizar valores"/>
+        {% csrf_token %}
+        {{ form.erros }}
+        {{ form.as_p }}
+        <br>
+        <input type="submit" value="Actualizar valores"id="botonAñadir" />
     </form>
+</div>
 {% endblock %}

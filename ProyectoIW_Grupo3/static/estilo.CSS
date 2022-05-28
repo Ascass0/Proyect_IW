@@ -111,7 +111,9 @@ header {
     transform: translateY(-0.35em);
 }
 
-#enlaceIndex1, #enlaceIndex2, #enlaceIndex3{
+#enlaceIndex1,
+#enlaceIndex2,
+#enlaceIndex3 {
     background: #3D94F6;
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
@@ -202,7 +204,7 @@ footer {
     background-color: rgb(188, 207, 227);
     height: 600px;
     border-bottom: 3px solid rgb(0, 0, 0);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../static/imagenes/Passionate-about-Machines-1080x675.jpg    ");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("../static/imagenes/Passionate-about-Machines-1080x675.jpg    ");
     background-position: center;
     background-size: cover;
     display: flex;
@@ -244,7 +246,7 @@ h2 {
 
 .tabla {
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     align-items: center;
 }
 
@@ -286,7 +288,12 @@ h2 {
     margin-right: 3em;
 }
 
-.boton, #botonAñadir, #botonbusq, #botonenviar{
+.boton,
+#botonAñadir,
+#botonbusq,
+#botonenviar,
+#enlacelogin,
+.botonBorrar {
     background-color: #FAFBFC;
     border: 1px solid rgba(27, 31, 35, 0.15);
     border-radius: 6px;
@@ -297,26 +304,41 @@ h2 {
     padding: 8px 18px;
     vertical-align: middle;
     cursor: pointer;
+    text-decoration: none;
 }
 
-#botonbusq{
+#botonbusq {
     cursor: default;
 }
 
 
 
-#botonAñadir:hover, #botonenviar:hover{
+#botonAñadir:hover {
     background: #127D16;
     background-image: -webkit-linear-gradient(top, #127D16, #409A1C);
     background-image: -moz-linear-gradient(top, #127D16, #409A1C);
     background-image: -ms-linear-gradient(top, #127D16, #409A1C);
     background-image: -o-linear-gradient(top, #127D16, #409A1C);
     border: solid #000000 1px;
-    filter:alpha(opacity=50); opacity:0.8;
+    filter: alpha(opacity=50);
+    opacity: 0.8;
     color: black;
     font-weight: 450;
 }
 
+.botonBorrar:hover {
+    background: #931C1C;
+    background-image: -webkit-linear-gradient(top, #931C1C, #C02525);
+    background-image: -moz-linear-gradient(top, #931C1C, #C02525);
+    background-image: -ms-linear-gradient(top, #931C1C, #C02525);
+    background-image: -o-linear-gradient(top, #931C1C, #C02525);
+    background-image: -webkit-gradient(to bottom, #931C1C, #C02525);
+    border: solid #000000 1px;
+    filter: alpha(opacity=50);
+    opacity: 0.8;
+    color: black;
+    font-weight: 550;
+}
 
 .botonInicio {
     margin-left: 8em;
@@ -360,7 +382,7 @@ table {
 }
 
 tbody tr {
-    border-top: 1px solid #C1C3D1;
+   
     border-bottom: 1px solid #C1C3D1;
     text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
@@ -376,7 +398,12 @@ td {
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
     border-left: 1px solid #C1C3D1;
+    border-top: 1px solid #C1C3D1;
     text-align: center;
+}
+
+.trBusqueda{
+    border-top: none;
 }
 
 .detalles {
@@ -413,22 +440,112 @@ td {
 
 /*___________________LOGIN_______________________*/
 
-#login{
-    border: solid black 5px;
+#login {
+    border: solid black 3px;
     background-color: #4da1dd;
-    
     border-radius: 8%;
     width: 200px;
-    padding: 20px;
-    height:fit-content;
+    padding: 30px;
+    height: fit-content;
 }
 
-#login_contenedor{
+#login_contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 450px;
-    background-image: url("../static/imagenes/fondo_login.jpg"); 
+    height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url("../static/imagenes/fondo_login.jpg");
     background-position: center;
     background-size: cover;
+}
+
+.divLogout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    margin-bottom: 70px;
+}
+
+#textologin {
+    font-size: 20px;
+}
+
+#forgotPass {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#divUsernamePass {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+
+
+
+/*_____________________DETALLES____________________*/
+
+ul {
+    font-size: 16px;
+}
+
+li {
+    padding: 10px;
+}
+
+.divDetalles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloDetalles {
+    margin: 25px auto;
+    font-size: 18px;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    border-bottom: solid #324960 3px;
+}
+
+.botonesDetalles {
+    margin: 4em 5em;
+
+}
+
+.botonDetalles {
+    margin: 50px 0px;
+}
+
+.botonInicioDetalles {
+    margin: 3em 30em;
+}
+
+
+
+/*_____________________AÑADIR____________________*/
+
+.formAñadir{
+    display: flex;
+    border: solid  black 1px;
+    padding: 15px;
+    background-color: #e7e7e7;
+    width: 420px;
+    justify-content: center;
+    margin: 0em auto;
+    margin-bottom: 4em;
+    font-size: 18px;
+    border-radius: 4%;
+}
+
+.tituloAñadir{
+    margin: 1em auto;
+}
+
+
+.tituloBusqueda{
+    margin: 25px auto;
+    font-size: 18px;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    margin-bottom: 3em;
 }

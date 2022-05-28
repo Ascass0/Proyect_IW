@@ -1,31 +1,39 @@
 {% extends "base.html" %}
 {% block title %} Resultados busqueda Ticket{% endblock %}
+{% block superior %}Deustomach Innovation{% endblock %}
 {% block content %}
 
     {%if busqueda%}
-        <h1>RESULTADOS PARA '{{busqueda}}'</h1>
+    <div class="tituloBusqueda">
+        <h1>Resultados para: '{{busqueda}}'</h1>
+    </div>
         {%if prueba%}
             No hay resultados para la búsqueda
         {%else%}
+    <div class="tabla">
         <table>
             <tr>
+                <th class="th1">Titulo</th>
+                <th class="th2">Estado</th>
                 <th class="esquina"></th>
-                <th>Titulo</th>
-                <th>Estado</th>
             </tr>
         {%endif%}
             {% for tick in resultado %}
-                <tr>
-                    <th class="numeroCol">{{ tick.id }}</th>
-                    <td>{{ tick.titulo }}</td>
-                    <td>{{ tick.estado }}</td>
-                    <td class="detalles"><a href="{% url 'detalleTicket' tick.id %}">ver detalles</a></td>
-                </tr>
+            <tr>
+                <td>{{ tick.titulo }}</td>
+                <td>{{ tick.estado }}</td>
+                <td><a href="{% url 'detalleTicket' tick.id %}" class="detalles">Ver detalles</a></td>
+            </tr>
             {% endfor %}
         </table>
+    </div>
     {%else%}
         <h1>Error al buscar</h1>  
     {%endif%}
     <br>
-    <a href="/appProyectoIW_Grupo3">INICIO</a>
+    <div class="botonInicio">
+        <form action="{% url 'index' %}">
+            <input type="submit" value="INICIO" class="boton" />
+        </form>
+    </div>
 {% endblock %}

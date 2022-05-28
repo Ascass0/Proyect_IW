@@ -1,48 +1,67 @@
 {% extends "base.html" %}
 {% block title %} Detalle del ticket "{{ticket.equipo.numeroSerie}}" {% endblock %}
+{% block superior %}Deustomach Innovation{% endblock %}
 {% block content %}
-    {% if ticket %}
+{% if ticket %}
+<div class="tituloDetalles">
     <h2>Detalle del ticket "{{ticket.equipo.numeroSerie}}"</h2>
-    <ul>
-        <li>
-            <strong>Número de serie del equipo: </strong> <a href="{% url 'detalleEquipo' ticket.equipo.id %}">{{ticket.equipo.numeroSerie}}</a>
-        </li>
-        <li>
-            <strong>DNI del empleado: </strong> <a href="{% url 'detalleEmpleado' ticket.empleado.id %}">{{ticket.empleado.DNI}}</a>
-        </li>
-        </li>
-        <li>
-            <strong>Número de referencia: </strong> {{ticket.numeroReferencia}}
-        </li>
-        <li>
-            <strong>Título: </strong> {{ticket.titulo}}
-        </li>
-        <li>
-            <strong>Descripción: </strong> {{ticket.descripcion}}
-        </li>
-        <li>
-            <strong>Fecha de apertura: </strong> {{ticket.fechaApertura}}
-        </li>
-        <li>
-            <strong>Fecha de resolución: </strong> {{ticket.fechaResolucion}}
-        </li>
-        <li>
-            <strong>Nivel de urgencia: </strong> {{ticket.nivelUrgencia}}
-        </li>
-        <li>
-            <strong>Tipo de ticket: </strong> {{ticket.tipoTicket}}
-        </li>
-        <li>
-            <strong>Estado: </strong> {{ticket.estado}}
-        </li>
-        <li>
-            <strong>Comentarios: </strong> {{ticket.comentarios}}
-        </li>
-    </ul>
-    {% else %}
-        <p>No existe este equipo.</p>
-    {% endif %}
-    <a href="{% url 'borrarTicket' id=ticket.id %}">BORRAR</a><br>
-    <a href="/appProyectoIW_Grupo3/actualizarTicket/{{ticket.id}}">Actualizar</a><br>
-    <a href="/appProyectoIW_Grupo3/">Inicio</a>
+</div>
+<div class="divDetalles">
+    <div>
+        <ul>
+            <li>
+                <strong>Número de serie del equipo: </strong> <a
+                    href="{% url 'detalleEquipo' ticket.equipo.id %}">{{ticket.equipo.numeroSerie}}</a>
+            </li>
+            <li>
+                <strong>DNI del empleado: </strong> <a
+                    href="{% url 'detalleEmpleado' ticket.empleado.id %}">{{ticket.empleado.DNI}}</a>
+            </li>
+            </li>
+            <li>
+                <strong>Número de referencia: </strong> {{ticket.numeroReferencia}}
+            </li>
+            <li>
+                <strong>Título: </strong> {{ticket.titulo}}
+            </li>
+            <li>
+                <strong>Descripción: </strong> {{ticket.descripcion}}
+            </li>
+            <li>
+                <strong>Fecha de apertura: </strong> {{ticket.fechaApertura}}
+            </li>
+            <li>
+                <strong>Fecha de resolución: </strong> {{ticket.fechaResolucion}}
+            </li>
+            <li>
+                <strong>Nivel de urgencia: </strong> {{ticket.nivelUrgencia}}
+            </li>
+            <li>
+                <strong>Tipo de ticket: </strong> {{ticket.tipoTicket}}
+            </li>
+            <li>
+                <strong>Estado: </strong> {{ticket.estado}}
+            </li>
+            <li>
+                <strong>Comentarios: </strong> {{ticket.comentarios}}
+            </li>
+        </ul>
+    </div>
+    <div class="botonesDetalles">
+        <div class="botonDetalles">
+            <a href="{% url 'borrarTicket' id=ticket.id %}" class="botonBorrar">BORRAR</a><br>
+        </div>
+        <div class="botonDetalles">
+            <a href="/appProyectoIW_Grupo3/actualizarTicket/{{ticket.id}}" class="boton">Actualizar</a><br>
+        </div>
+    </div>
+</div>
+<div class="botonInicioDetalles">
+    <a href="/appProyectoIW_Grupo3/" class="boton">Inicio</a>
+</div>
+
+{% else %}
+<p>No existe este equipo.</p>
+{% endif %}
+
 {% endblock %}

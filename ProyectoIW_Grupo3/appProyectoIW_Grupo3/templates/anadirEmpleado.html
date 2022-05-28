@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block title %} Añadir empleado {% endblock %}
+{% block superior%} Deustomach Innovation {% endblock %}
 {% block content %}
-    <form action="{% url 'anadirEmpleado' %}" method="post">
-        {% csrf_token %}
-        {{ form.erros }}
-        {{ form.as_p }}
-        <input type="submit" value="Nuevo Empleado" />
-    </form>
-    <br>
-    <a href="/appProyectoIW_Grupo3">CANCELAR</a>
+<div class="tituloAñadir">
+    <h2>Añadir nuevo empleado</h2>
+</div>
+    <div class="formAñadir">
+        <form action="{% url 'anadirEmpleado' %}" method="post">
+            {% csrf_token %}
+            {{ form.erros }}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Nuevo Empleado" id="botonAñadir"/>
+        </form>
+    </div>
 {% endblock %}

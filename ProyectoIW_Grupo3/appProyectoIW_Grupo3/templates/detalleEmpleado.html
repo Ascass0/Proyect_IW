@@ -1,29 +1,45 @@
 {% extends "base.html" %}
 {% block title %} Detalle del empleado "{{empleado.DNI}}" {% endblock %}
+{% block superior %}Deustomach Innovation{% endblock %}
 {% block content %}
-    {% if empleado %}
+{% if empleado %}
+<div class="tituloDetalles">
     <h2>Detalle del empleado "{{empleado.DNI}}"</h2>
-    <ul>
-        <li>
-            <strong>DNI: </strong>{{ empleado.DNI}}
-        </li>
-        <li>
-            <strong>Nombre: </strong> {{ empleado.nombre}}
-        </li>
-        <li>
-            <strong>Apellido: </strong> {{ empleado.apellido}}
-        </li>
-        <li>
-            <strong>Email: </strong> {{ empleado.email}}
-        </li>
-        <li>
-            <strong>Teléfono: </strong> {{ empleado.telfono}}
-        </li>
-    </ul>
-    {% else %}
-        <p>No existe este equipo.</p>
-    {% endif %}
-    <a href="{% url 'borrarEmpleado' id=empleado.id %}">BORRAR</a><br>
-    <a href="/appProyectoIW_Grupo3/actualizarEmpleado/{{empleado.id}}">Actualizar</a><br>
-    <a href="/appProyectoIW_Grupo3">Inicio</a>
+</div>
+<div class="divDetalles">
+    <div>
+        <ul>
+            <li>
+                <strong>DNI: </strong>{{ empleado.DNI}}
+            </li>
+            <li>
+                <strong>Nombre: </strong> {{ empleado.nombre}}
+            </li>
+            <li>
+                <strong>Apellido: </strong> {{ empleado.apellido}}
+            </li>
+            <li>
+                <strong>Email: </strong> {{ empleado.email}}
+            </li>
+            <li>
+                <strong>Teléfono: </strong> {{ empleado.telfono}}
+            </li>
+        </ul>
+    </div>
+    <div class="botonesDetalles">
+        <div class="botonDetalles">
+            <a href="{% url 'borrarEmpleado' id=empleado.id %}" class="botonBorrar">BORRAR</a><br>
+        </div>
+        <div class="botonDetalles">
+            <a href="/appProyectoIW_Grupo3/actualizarEmpleado/{{empleado.id}}" class="boton">Actualizar</a><br>
+        </div>
+    </div>
+</div>
+<div class="botonInicioDetalles">
+    <a href="/appProyectoIW_Grupo3" class="boton">Inicio</a>
+</div>
+
+{% else %}
+<p>No existe este equipo.</p>
+{% endif %}
 {% endblock %}

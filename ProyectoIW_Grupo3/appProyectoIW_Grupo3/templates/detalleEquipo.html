@@ -1,41 +1,56 @@
 {% extends "base.html" %}
-{% block title %} Detalle del equipo "{{equipo.modelo}}"  {% endblock %}
+{% block title %} Detalle del equipo "{{equipo.modelo}}" {% endblock %}
+{% block superior %}Deustomach Innovation{% endblock %}
 {% block content %}
-    {% if equipo %}
+{% if equipo %}
+<div class="tituloDetalles">
     <h2>Detalle del equipo "{{equipo.modelo}}"</h2>
-    <ul>
-        <li>
-            <strong>Número de serie: </strong> {{ equipo.numeroSerie}}
-        </li>
-        <li>
-            <strong>Modelo: </strong> {{ equipo.modelo}}
-        </li>
-        <li>
-            <strong>Marca: </strong> {{ equipo.marca}}
-        </li>
-        <li>
-            <strong>Tipo de equipo: </strong> {{ equipo.tipoEquipo}}
-        </li>
-        <li>
-            <strong>Fecha de adquisición: </strong>{{ equipo.fechaAdquisicion}}
-        </li>
-        <li>
-            <strong>Fecha de puesta en marcha: </strong> {{ equipo.fechaPuestaMarcha}}
-        </li>
-        <li>
-            <strong>Nombre del proveedor: </strong> {{ equipo.proveedorNombre}}
-        </li>
-        <li>
-            <strong>Teléfono del proveedor: </strong> {{ equipo.proveedorTelefono}}
-        </li>
-        <li>
-            <strong>Planta: </strong> {{ equipo.planta}}
-        </li>
-    </ul>
-    {% else %}
-        <p>No existe este equipo.</p>
-    {% endif %}
-    <a href="{% url 'borrarEquipo' id=equipo.id %}">BORRAR</a><br>
-    <a href="/appProyectoIW_Grupo3/actualizarEquipo/{{equipo.id}}">Actualizar</a><br>
-    <a href="/appProyectoIW_Grupo3">Inicio</a>
+</div>
+<div class="divDetalles">
+    <div>
+        <ul>
+            <li>
+                <strong>Número de serie: </strong> {{ equipo.numeroSerie}}
+            </li>
+            <li>
+                <strong>Modelo: </strong> {{ equipo.modelo}}
+            </li>
+            <li>
+                <strong>Marca: </strong> {{ equipo.marca}}
+            </li>
+            <li>
+                <strong>Tipo de equipo: </strong> {{ equipo.tipoEquipo}}
+            </li>
+            <li>
+                <strong>Fecha de adquisición: </strong>{{ equipo.fechaAdquisicion}}
+            </li>
+            <li>
+                <strong>Fecha de puesta en marcha: </strong> {{ equipo.fechaPuestaMarcha}}
+            </li>
+            <li>
+                <strong>Nombre del proveedor: </strong> {{ equipo.proveedorNombre}}
+            </li>
+            <li>
+                <strong>Teléfono del proveedor: </strong> {{ equipo.proveedorTelefono}}
+            </li>
+            <li>
+                <strong>Planta: </strong> {{ equipo.planta}}
+            </li>
+        </ul>
+    </div>
+    <div class="botonesDetalles">
+        <div class="botonDetalles">
+            <a href="{% url 'borrarEquipo' id=equipo.id %}" class="botonBorrar">BORRAR</a>
+        </div>
+        <div class="botonDetalles">
+            <a href="/appProyectoIW_Grupo3/actualizarEquipo/{{equipo.id}}" class="boton">Actualizar</a><br>
+        </div>
+    </div>
+</div>
+<div class="botonInicioDetalles">
+    <a href="/appProyectoIW_Grupo3" class="boton">Inicio</a>
+</div>
+{% else %}
+<p>No existe este equipo.</p>
+{% endif %}
 {% endblock %}
