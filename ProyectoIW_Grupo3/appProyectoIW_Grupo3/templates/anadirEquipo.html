@@ -5,14 +5,21 @@
 <div class="tituloAñadir">
     <h2>Añadir nuevo equipo</h2>
 </div>
+<div class="layoutFORM">
+    <div class="invisble"></div>
     <div class="formAñadir">
         <form action="{% url 'anadirEquipo' %}" method="post">
             {% csrf_token %}
             {{ form.erros }}
             {{ form.as_p }}
             <br>
-            <input type="submit" value="Nuevo equipo" id="botonAñadir" />
+            <input type="submit" value="Nuevo equipo" id="botonAñadir"
+            onclick="return validarEquipo()" />
         </form>
     </div>
-
+    <div class="alertasFORM">
+        <span id="spanTLFN">Numero de teléfono no válido</span><br>
+        <span id="spanFechas">Fechas incorrectas</span>
+    </div>
+</div>
 {% endblock %}

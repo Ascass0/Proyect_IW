@@ -5,13 +5,20 @@
 <div class="tituloAñadir">
     <h2>Añadir nuevo empleado</h2>
 </div>
+<div class="layoutFORM">
+    <div class="invisble"></div>
     <div class="formAñadir">
         <form action="{% url 'anadirEmpleado' %}" method="post">
             {% csrf_token %}
             {{ form.erros }}
             {{ form.as_p }}
             <br>
-            <input type="submit" value="Nuevo Empleado" id="botonAñadir"/>
+            <input type="submit" value="Nuevo Empleado" id="botonAñadir" onclick="return validarEmpleado()" />
         </form>
     </div>
+    <div class="alertasFORM">
+        <span id="spanTLFN">Numero de teléfono no válido</span><br>
+        <span id="spanDNI">DNI no válido</span>
+    </div>
+</div>
 {% endblock %}

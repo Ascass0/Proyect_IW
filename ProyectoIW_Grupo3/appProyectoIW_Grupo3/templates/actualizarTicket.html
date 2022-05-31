@@ -2,16 +2,22 @@
 {% block title %} Actualizar ticket {% endblock %}
 {% block superior%} Deustomach Innovation {% endblock %}
 {% block content %}
-<div class="tituloAñadir">
+<div class="tituloActualizar">
     <h2>Actualizar ticket</h2>
 </div>
-<div class="formAñadir">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.erros }}
-        {{ form.as_p }}
-        <br>
-        <input type="submit" value="Actualizar valores"id="botonAñadir"/>
-    </form>
+<div class="layoutFORM">
+    <div class="invisble"></div>
+    <div class="formActualizar">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.erros }}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Actualizar valores" id="botonAñadir" onclick="return validarTicket()" />
+        </form>
+    </div>
+    <div class="alertasFORM">
+        <span id="spanFechas">Fechas incorrectas</span>
+    </div>
 </div>
 {% endblock %}

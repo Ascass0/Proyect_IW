@@ -239,9 +239,10 @@ footer {
 
 
 h2 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 32px;
     word-spacing: 10px;
+    font-weight: 600;
 }
 
 .tabla {
@@ -382,7 +383,7 @@ table {
 }
 
 tbody tr {
-   
+
     border-bottom: 1px solid #C1C3D1;
     text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
 }
@@ -402,7 +403,7 @@ td {
     text-align: center;
 }
 
-.trBusqueda{
+.trBusqueda {
     border-top: none;
 }
 
@@ -502,10 +503,11 @@ li {
 }
 
 .tituloDetalles {
-    margin: 25px auto;
+    padding: 25px;
+    text-align: center;
     font-size: 18px;
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    border-bottom: solid #324960 3px;
+    background: linear-gradient(180deg, rgba(235,225,172,1) 0%, rgba(255,255,255,1) 100%);
 }
 
 .botonesDetalles {
@@ -523,29 +525,110 @@ li {
 
 
 
-/*_____________________AÑADIR____________________*/
+/*_____________________FORM______________________*/
 
-.formAñadir{
+form {
+    display: table;
+}
+
+p {
+    display: table-row;
+}
+
+label {
+    display: table-cell;
+    padding: 12px;
+    font-size: 20px;
+    text-align: left;
+}
+
+input,
+select,
+textarea {
+    display: table-cell;
+    padding: 5px;
+    vertical-align: top;
+}
+
+
+.formAñadir {
+    flex: 1;
     display: flex;
-    border: solid  black 1px;
-    padding: 15px;
-    background-color: #e7e7e7;
-    width: 420px;
+    border: solid rgb(0, 0, 0) 1px;
+    padding: 35px;
+    background-color: #ebf1fde4;
     justify-content: center;
     margin: 0em auto;
     margin-bottom: 4em;
     font-size: 18px;
     border-radius: 4%;
+    max-width: 700px;
+    text-align: justify;
 }
 
-.tituloAñadir{
-    margin: 1em auto;
+.formActualizar {
+    flex: 1;
+    display: flex;
+    border: solid rgb(0, 0, 0) 1px;
+    padding: 35px;
+    background-color: #effdebe4;
+    justify-content: center;
+    margin: 0em auto;
+    margin-bottom: 4em;
+    font-size: 18px;
+    border-radius: 4%;
+    max-width: 700px;
+    text-align: justify;
 }
 
 
-.tituloBusqueda{
+.tituloAñadir {
+    background: linear-gradient(180deg, rgba(164, 201, 235, 1) 22%, rgba(255, 255, 255, 1) 100%);
+    text-align: center;
+    padding: 1em;
+}
+
+.tituloActualizar {
+    background: linear-gradient(180deg, rgba(172, 235, 175, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    padding: 1em;
+    text-align: center;
+}
+
+.tituloBusqueda {
     margin: 25px auto;
     font-size: 18px;
     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
     margin-bottom: 3em;
+}
+
+
+.layoutFORM {
+    display: flex
+}
+
+.invisble {
+    justify-content: left;
+    flex: 1;
+}
+
+.alertasFORM {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex: 1;
+    justify-content: right;
+    margin: 4em auto;
+    font-size: 20px;
+}
+
+#spanTLFN,
+#spanDNI,
+#spanFechas {
+    max-width: 350px;
+    padding: 15px;
+    border: solid 1px #C02525;
+    background-color: #fff6f6;
+    border-radius: 5px;
+    visibility: hidden;
+    margin: auto 3em;
 }

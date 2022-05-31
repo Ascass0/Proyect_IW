@@ -28,7 +28,7 @@ class TicketForm(forms.ModelForm):
         widgets = {
             'fechaApertura': forms.DateInput(attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
             'fechaResolucion': forms.DateInput(attrs={'class':'form-control', 'placeholder':'Select a date', 'type':'date'}),
-            'descripcion': forms.Textarea(attrs={'cols' : 50, 'rows' : 3}),
+            'descripcion': forms.Textarea(attrs={'cols' : 50, 'rows' : 5}),
             'comentarios': forms.Textarea(attrs={'cols' : 50, 'rows' : 10}),
         }
 

@@ -2,16 +2,24 @@
 {% block title %} Actualizar empleado {% endblock %}
 {% block superior%} Deustomach Innovation {% endblock %}
 {% block content %}
-<div class="tituloAñadir">
+<div class="tituloActualizar">
     <h2>Actualizar empleado</h2>
 </div>
-<div class="formAñadir">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.erros }}
-        {{ form.as_p }}
-        <br>
-        <input type="submit" value="Actualizar valores"id="botonAñadir" />
-    </form>
+</div>
+<div class="layoutFORM">
+    <div class="invisble"></div>
+    <div class="formActualizar">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.erros }}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Actualizar valores" id="botonAñadir"onclick="return validarEmpleado()" />
+        </form>
+    </div>
+    <div class="alertasFORM">
+        <span id="spanTLFN">Numero de teléfono no válido</span><br>
+        <span id="spanDNI">DNI no válido</span>
+    </div>
 </div>
 {% endblock %}

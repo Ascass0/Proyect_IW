@@ -5,14 +5,19 @@
 <div class="tituloAñadir">
     <h2>Añadir nuevo ticket</h2>
 </div>
+<div class="layoutFORM">
+    <div class="invisble"></div>
     <div class="formAñadir">
         <form action="{% url 'anadirTicket' %}" method="post">
             {% csrf_token %}
             {{ form.erros }}
             {{ form.as_p }}
             <br>
-            <input type="submit" value="Nuevo ticket" id="botonAñadir" />
+            <input type="submit" value="Nuevo ticket" id="botonAñadir" onclick="return validarTicket()" />
         </form>
     </div>
-
+    <div class="alertasFORM">
+        <span id="spanFechas">Fechas incorrectas</span>
+    </div>
+</div>
 {% endblock %}
