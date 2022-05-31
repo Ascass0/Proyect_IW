@@ -7,12 +7,10 @@
     <div class="izquierda">
         <div class="botonesIZQ">
             <div class="divbuscador">
-                <form method="post" action="{% url 'buscarTicket' %}">
-                    {% csrf_token %}
-                    {{ form.erros }}
+                <form method="post" action="{% url 'listadoTickets' %}" id="formularioBusquedaTicket">
                     {{ form.as_p }}
-                    <input type="search" placeholder='Busca un título' , name="busqueda" ,  id="botonbusq">
-                    <input type="submit" class="boton">
+                    <input type="search" placeholder='Busca un título' , name="busqueda" , id="botonbusq">
+                    <input type="submit" class="boton jsbotonbusqueda">
                 </form>
             </div>
             <div class="divbotonAñadir">
@@ -35,7 +33,7 @@
 
 <div class="tabla">
     {% if ticket %}
-    <table>
+    <table id="jstabla">
         <thead>
             <tr>
                 <th class="th1">Titulo</th>
@@ -43,13 +41,15 @@
                 <th class="esquina"></th>
             </tr>
         </thead>
+        <tbody  id="jstablabusqueda">
         {% for tick in ticket %}
-        <tr>
-            <td>{{ tick.titulo }}</td>
-            <td>{{ tick.estado }}</td>
-            <td><a href="{% url 'detalleTicket' tick.id %}" class="detalles">Ver detalles</a></td>
-        </tr>
+            <tr>
+                <td>{{ tick.titulo }}</td>
+                <td>{{ tick.estado }}</td>
+                <td><a href="{% url 'detalleTicket' tick.id %}" class="detalles">Ver detalles</a></td>
+            </tr>
         {% endfor %}
+        </tbody>
     </table>
 
     <div id="popup">
