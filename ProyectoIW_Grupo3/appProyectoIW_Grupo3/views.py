@@ -1,10 +1,12 @@
 
+from ast import Try
 from asyncio.windows_events import NULL
+import json
 from pickle import FALSE, TRUE
 from unicodedata import name
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from .models import Equipo, Ticket, Empleado
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.views import View
 from django.views.generic import DetailView
 from .forms import EquipoForm, TicketForm, EmpleadoForm
@@ -12,8 +14,14 @@ from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.db.models import CharField
 from django.db.models.functions import Lower
 
-CharField.register_lookup(Lower)
- 
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
+
+
+
+
+# ---------------------------------LISTADOS--------------------------------------
 
 # devuelve la página principal
 def index(request):
@@ -27,10 +35,29 @@ def listado_equipos(request):
 
 
 # devuelve  el listado de los tickets
+@method_decorator(csrf_exempt, name='dispatch')
 def listado_tickets(request):
+
+    
     tickets = Ticket.objects.order_by('titulo')
     context = {'ticket': tickets}
-    return render(request, 'listadoTickets.html', context)
+
+
+    if request.method=='POST':
+
+            body_unicode = request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            content = body['searchTerm']
+            resultado=Ticket.objects.filter(titulo__contains=content)
+            prueba=False
+            if not resultado:
+                prueba = True
+            datos = list(resultado.values())
+            return JsonResponse({'tickets': datos})
+        
+    else:
+        return render(request, 'listadoTickets.html', context)
+    
 
 
 # devuelve  el listado de los empleados
